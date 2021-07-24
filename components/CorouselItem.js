@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
-
+// import Video from 'react-native-video';
 
 const {width,height}=Dimensions.get('window');
 
@@ -9,6 +9,7 @@ const CorouselItem = ({item}) =>{
     return (
         <View style={styles.cardView}>
             <Image style={styles.image} source={item.url}/>
+            {/* <Video source={{ uri: 'http://STREAM_URL/playlist.m3u8' }} /> */}
         </View>
     )
 }

@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image,TextInput } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, TouchableOpacity,Dimensions, StatusBar,Image,TextInput } from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import FeatherIcon from 'react-native-vector-icons/Feather'
 
+const {width,height}=Dimensions.get('window');
 
 export default function Login({navigation}) {
   const [text,onChangeText]=useState("janedoe@gmail.com");
   const [password,onChangePassword]=useState();
   return (
     <ScrollView>
+      <StatusBar translucent backgroundColor="transparent"/>
       <View>
         <Image style={styles.logo} source={require('../assets/loginpage.png')} />
         <Text style={styles.title}>AI Emadi Hospital</Text>
@@ -57,9 +59,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   logo: {
-    flex: 1,
-    width:360,
-    resizeMode: 'contain',
+    width:width-1,
+    height:height/2,
+    borderBottomRightRadius:5,
+    borderBottomLeftRadius:5
   },
   buttonContainer: {
     flexDirection: 'row',

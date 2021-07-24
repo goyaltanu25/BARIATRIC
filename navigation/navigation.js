@@ -25,10 +25,10 @@ import MenuScreen from '../views/MenuScreen';
 
 const defaultStackNavOptions = {
    headerStyle: {
-     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
    },
 
-   headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
+   headerTintColor:  Platform.OS === 'android' ? Colors.textColor : ''
  };
 
 const StackNavigator = createStackNavigator({
@@ -135,7 +135,7 @@ const tabScreenConfig = {
         return <Ionicons name="person-circle" size={25} color={tabInfo.tintColor} />;
       },
       tabBarColor: Colors.accentColor,
-      title:'',
+      // title:'',
     }
   }
  };
@@ -164,6 +164,6 @@ const DrawerNavigator = createDrawerNavigator(
   }
 );
 
-const Navigation =createAppContainer(TabNavigator);
+const Navigation =createAppContainer(DrawerNavigator);
 
 export default Navigation;

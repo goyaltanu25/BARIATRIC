@@ -15,7 +15,7 @@ export default function Register({navigation}) {
   display:flex;
   justify-content:center;
   margin:44px 0px;
-  margin-bottom:154px;
+  margin-bottom:104px;
   `
   const SocialIcon = styled.View`
   height:46px;
@@ -35,7 +35,7 @@ export default function Register({navigation}) {
   `
 
   return (
-    <ScrollView  horizontal>
+    <ScrollView >
     <View style={styles.headView}>
       <Text style={styles.text}>from</Text>
 
@@ -114,7 +114,7 @@ export default function Register({navigation}) {
 
 const styles = StyleSheet.create({
   headView: {
-    margin: 12,
+    margin: 32,
     textAlign: 'center',
     alignItems:'center',
     justifyContent:'center'
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#52CEC3',
     color: '#4FB6AD',
     margin: 22,
+    height:60,
     width: 300,
     padding: 18,
     borderRadius: 8,
@@ -158,6 +159,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#9DDFD3',
     color: '#4FB6AD',
     margin: 22,
+    height:60,
     width: 300,
     padding: 18,
     borderRadius: 8,
