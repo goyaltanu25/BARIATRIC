@@ -1,6 +1,14 @@
 import React from 'react';
+import { Platform, Text } from 'react-native';
+
 import { createAppContainer } from 'react-navigation';
-// import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createStackNavigator } from 'react-navigation-stack';
+import {createBottomTabNavigator} from 'react-navigation-tabs'
+
+import { Ionicons } from '@expo/vector-icons';
+
+import Colors from '../constants/Colors';
 
 import Register from '../views/Register';
 import Login from '../views/Login';
@@ -11,7 +19,22 @@ import RegisterWithEmail from '../views/RegisterThroghEmail'
 import RegisterWithPhone from '../views/RegisterThroughPhone'
 import OTPScreen from '../views/OTP'
 import CalorieTracker from '../views/CalorieTracker'
-import { createStackNavigator } from 'react-navigation-stack';
+import MenuScreen from '../views/MenuScreen';
+
+
+
+const defaultStackNavOptions = {
+   headerStyle: {
+     backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
+   },
+   // headerTitleStyle: {
+   //   fontFamily: 'open-sans-bold'
+   // },
+   // headerBackTitleStyle: {
+   //   fontFamily: 'open-sans'
+   // },
+   headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
+ };
 
 const StackNavigator = createStackNavigator({
     Home:{
@@ -41,6 +64,13 @@ const StackNavigator = createStackNavigator({
            title:'',
            headerShown: false,
         } 
+    },
+    MenuScreen:{
+      screen:MenuScreen,
+      navigationOptions:{
+         title:'',
+         headerShown: false,
+      } 
     },
     Alarm:{
       screen:Alarm,
@@ -74,11 +104,47 @@ const StackNavigator = createStackNavigator({
          title:'Create Account'
       } 
    },
-});
+},{
+    defaultNavigationOptions: defaultStackNavOptions
+}
 
-const Navigation =createAppContainer(StackNavigator);
+);
 
-export default Navigation;
+const tabScreenConfig = {
+   Meals: {
+     screen: StackNavigator,
+     navigationOptions: {
+       tabBarIcon: tabInfo => {
+         return (
+           <Ionicons name="restaurant" size={25} color={tabInfo.tintColor} />
+         );
+       },
+       tabBarColor: Colors.primaryColor,
+       tabBarLabel:
+         Platform.OS === 'android' ? (
+           <Text>Meals</Text>
+         ) : (
+           'Meals'
+         )
+     }
+   },
+   Favorites: {
+     screen: StackNavigator,
+     navigationOptions: {
+       tabBarIcon: tabInfo => {
+         return <Ionicons name="star" size={25} color={tabInfo.tintColor} />;
+       },
+       tabBarColor: Colors.accentColor,
+     }
+   }
+ };
+const TabNavigator = createBottomTabNavigator(
+   tabScreenConfig, {
+   tabBarOptions: {
+     activeTintColor: Colors.accentColor
+   }
+ })
+
 
 
 // const Drawer = createDrawerNavigator();
@@ -92,3 +158,8 @@ export default Navigation;
 //     </Drawer.Navigator>
 //   );
 // }
+
+
+const Navigation =createAppContainer(TabNavigator);
+
+export default Navigation;

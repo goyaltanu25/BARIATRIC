@@ -10,7 +10,7 @@ export default function Home({navigation}) {
     navigation.navigate('Alarm')
   }
   const login=()=>{
-  navigation.navigate('CalorieTracker')
+  navigation.push('MenuScreen')
   }
   return (
     <ScrollView>
