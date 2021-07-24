@@ -21,6 +21,15 @@ import OTPScreen from '../views/OTP'
 import CalorieTracker from '../views/CalorieTracker'
 import MenuScreen from '../views/MenuScreen';
 import BMICalculator from '../views/BMICalculator'
+import ReminderScreen1 from '../views/ReminderScreen1'
+import SleepTracker from '../views/SleepTracker'
+import SugarTracker from '../views/SugarTracker'
+import WeightForLengthScreen from '../views/WeightForLengthScreen'
+import NutritionTrackerScreen1 from '../views/NutritionTrackerScreen1'
+import HFSCFDFinder from '../views/HFSCFDFinder'
+import CommunitySupport from '../views/ChatScreen'
+import Settings from '../views/Settings'
+
 
 
 
@@ -61,33 +70,6 @@ const StackNavigator = createStackNavigator({
            headerShown: false,
         } 
     },
-    MenuScreen:{
-      screen:MenuScreen,
-      navigationOptions:{
-         title:'',
-         headerShown: true,
-      } 
-    },
-    Alarm:{
-      screen:Alarm,
-      navigationOptions:{
-         title:'',
-         headerShown: false,
-      } 
-   },
-    CalorieTracker:{
-      screen:CalorieTracker,
-      navigationOptions:{
-         title:'',
-         headerShown: false,
-      } 
-   },
-    OTP:{
-      screen:OTPScreen,
-      navigationOptions:{
-         title:'Verify Phone'
-      } 
-   },
     RegisterWithPhone:{
       screen:RegisterWithPhone,
       navigationOptions:{
@@ -151,68 +133,95 @@ const TabNavigator = createBottomTabNavigator(
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    StackNavigator: {
-      screen: StackNavigator,
+    BMICalculator: {
+      screen: BMICalculator,
       navigationOptions: {
         drawerLabel: 'BMI Calculator',
         
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    HFSCFDFinder: {
+      screen: HFSCFDFinder,
       navigationOptions: {
         drawerLabel: 'All Trackers',
         
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    NutritionTrackerScreen: {
+      screen: NutritionTrackerScreen1,
       navigationOptions: {
         drawerLabel: 'Nutritution Tracker',
         
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    SleepTracker: {
+      screen: SleepTracker,
       navigationOptions: {
         drawerLabel: 'Sleep Tracker',
         
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    SugarTracker: {
+      screen: SugarTracker,
       navigationOptions: {
         drawerLabel: 'Sugar Tracker',
         
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    WeightForLengthScreen: {
+      screen: WeightForLengthScreen,
       navigationOptions: {
         drawerLabel: 'History',
         
       }
     },
-    TabNavigator:{
-      screen: StackNavigator,
+    ReminderScreen:{
+      screen: ReminderScreen1,
       navigationOptions: {
         drawerLabel: 'Reminder'
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    CommunitySupport: {
+      screen: CommunitySupport,
       navigationOptions: {
         drawerLabel: 'Community Support',
         
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
+    Settings: {
+      screen: Settings,
       navigationOptions: {
         drawerLabel: 'Settings',
         
       }
     },
+    MenuScreen:{
+      screen:MenuScreen,
+      navigationOptions:{
+         title:'',
+         headerShown: true,
+      } 
+    },
+    Alarm:{
+      screen:Alarm,
+      navigationOptions:{
+         title:'',
+         headerShown: false,
+      } 
+   },
+    CalorieTracker:{
+      screen:CalorieTracker,
+      navigationOptions:{
+         title:'',
+         headerShown: false,
+      } 
+   },
+    OTP:{
+      screen:OTPScreen,
+      navigationOptions:{
+         title:'Verify Phone'
+      } 
+   },
   },
   
   {
@@ -222,6 +231,6 @@ const DrawerNavigator = createDrawerNavigator(
   }
 );
 
-const Navigation =createAppContainer(DrawerNavigator);
+const Navigation =createAppContainer(TabNavigator);
 
 export default Navigation;
