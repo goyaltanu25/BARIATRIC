@@ -27,12 +27,7 @@ const defaultStackNavOptions = {
    headerStyle: {
      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : ''
    },
-   // headerTitleStyle: {
-   //   fontFamily: 'open-sans-bold'
-   // },
-   // headerBackTitleStyle: {
-   //   fontFamily: 'open-sans'
-   // },
+
    headerTintColor: Platform.OS === 'android' ? 'white' : Colors.primaryColor,
  };
 
@@ -111,32 +106,38 @@ const StackNavigator = createStackNavigator({
 );
 
 const tabScreenConfig = {
-   Meals: {
+   Home: {
      screen: StackNavigator,
      navigationOptions: {
        tabBarIcon: tabInfo => {
          return (
-           <Ionicons name="restaurant" size={25} color={tabInfo.tintColor} />
+           <Ionicons name="home" size={25} color={tabInfo.tintColor} />
          );
        },
        tabBarColor: Colors.primaryColor,
-       tabBarLabel:
-         Platform.OS === 'android' ? (
-           <Text>Meals</Text>
-         ) : (
-           'Meals'
-         )
+       title:'',
      }
    },
-   Favorites: {
-     screen: StackNavigator,
+   Camera: {
+     screen: Login,
      navigationOptions: {
        tabBarIcon: tabInfo => {
-         return <Ionicons name="star" size={25} color={tabInfo.tintColor} />;
+         return <Ionicons name="camera" size={25} color={tabInfo.tintColor} />;
        },
        tabBarColor: Colors.accentColor,
+       title:'',
      }
-   }
+   },
+   User: {
+    screen: Register,
+    navigationOptions: {
+      tabBarIcon: tabInfo => {
+        return <Ionicons name="person-circle" size={25} color={tabInfo.tintColor} />;
+      },
+      tabBarColor: Colors.accentColor,
+      title:'',
+    }
+  }
  };
 const TabNavigator = createBottomTabNavigator(
    tabScreenConfig, {
@@ -147,18 +148,21 @@ const TabNavigator = createBottomTabNavigator(
 
 
 
-// const Drawer = createDrawerNavigator();
-
-// export default function Navigation() {
-//   return (
-//     <Drawer.Navigator>
-//       <Drawer.Screen name="Home" component={Home} />
-//       <Drawer.Screen name="Register" component={Register} />
-//       <Drawer.Screen name="Login" component={Login} />
-//     </Drawer.Navigator>
-//   );
-// }
-
+const DrawerNavigator = createDrawerNavigator(
+  {
+    User: {
+      screen: TabNavigator,
+      navigationOptions: {
+        drawerLabel: 'User'
+      }
+    },
+  },
+  {
+    contentOptions: {
+      activeTintColor: Colors.accentColor,
+    }
+  }
+);
 
 const Navigation =createAppContainer(TabNavigator);
 
