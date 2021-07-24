@@ -64,7 +64,7 @@ const StackNavigator = createStackNavigator({
       screen:MenuScreen,
       navigationOptions:{
          title:'',
-         headerShown: false,
+         headerShown: true,
       } 
     },
     Alarm:{
@@ -150,16 +150,24 @@ const TabNavigator = createBottomTabNavigator(
 
 const DrawerNavigator = createDrawerNavigator(
   {
-    User: {
-      screen: TabNavigator,
+    StackNavigator: {
+      screen: StackNavigator,
       navigationOptions: {
-        drawerLabel: 'User'
+        drawerLabel: 'Stack',
+        
+      }
+    },
+    TabNavigator:{
+      screen: StackNavigator,
+      navigationOptions: {
+        drawerLabel: 'Tabs'
       }
     },
   },
+  
   {
     contentOptions: {
-      activeTintColor: Colors.accentColor,
+      activeTintColor: Colors.textColor,
     }
   }
 );
