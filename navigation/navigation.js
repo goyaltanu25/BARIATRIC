@@ -20,6 +20,7 @@ import RegisterWithPhone from '../views/RegisterThroughPhone'
 import OTPScreen from '../views/OTP'
 import CalorieTracker from '../views/CalorieTracker'
 import MenuScreen from '../views/MenuScreen';
+import BMICalculator from '../views/BMICalculator'
 
 
 
@@ -153,14 +154,63 @@ const DrawerNavigator = createDrawerNavigator(
     StackNavigator: {
       screen: StackNavigator,
       navigationOptions: {
-        drawerLabel: 'Stack',
+        drawerLabel: 'BMI Calculator',
+        
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'All Trackers',
+        
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'Nutritution Tracker',
+        
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'Sleep Tracker',
+        
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'Sugar Tracker',
+        
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'History',
         
       }
     },
     TabNavigator:{
       screen: StackNavigator,
       navigationOptions: {
-        drawerLabel: 'Tabs'
+        drawerLabel: 'Reminder'
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'Community Support',
+        
+      }
+    },
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'Settings',
+        
       }
     },
   },
