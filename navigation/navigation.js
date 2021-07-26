@@ -93,80 +93,80 @@ const StackNavigator = createStackNavigator({
          title:'Create Account'
       } 
    },
-    BMICalculator: {
-      screen: BMICalculator,
-      navigationOptions: {
-        drawerLabel: 'BMI Calculator',
+    // BMICalculator: {
+    //   screen: BMICalculator,
+    //   navigationOptions: {
+    //     drawerLabel: 'BMI Calculator',
         
-      }
-    },
-    HFSCFDFinder: {
-      screen: HFSCFDFinder,
-      navigationOptions: {
-        drawerLabel: 'All Trackers',
+    //   }
+    // },
+    // HFSCFDFinder: {
+    //   screen: HFSCFDFinder,
+    //   navigationOptions: {
+    //     drawerLabel: 'All Trackers',
         
-      }
-    },
-    NutritionTrackerScreen: {
-      screen: NutritionTrackerScreen1,
-      navigationOptions: {
-        drawerLabel: 'Nutritution Tracker',
+    //   }
+    // },
+    // NutritionTrackerScreen: {
+    //   screen: NutritionTrackerScreen1,
+    //   navigationOptions: {
+    //     drawerLabel: 'Nutritution Tracker',
         
-      }
-    },
-    SleepTracker: {
-      screen: SleepTracker,
-      navigationOptions: {
-        drawerLabel: 'Sleep Tracker',
+    //   }
+    // },
+    // SleepTracker: {
+    //   screen: SleepTracker,
+    //   navigationOptions: {
+    //     drawerLabel: 'Sleep Tracker',
         
-      }
-    },
-    SugarTracker: {
-      screen: SugarTracker,
-      navigationOptions: {
-        drawerLabel: 'Sugar Tracker',
+    //   }
+    // },
+    // SugarTracker: {
+    //   screen: SugarTracker,
+    //   navigationOptions: {
+    //     drawerLabel: 'Sugar Tracker',
         
-      }
-    },
-    WeightForLengthScreen: {
-      screen: WeightForLengthScreen,
-      navigationOptions: {
-        drawerLabel: 'History',
+    //   }
+    // },
+    // WeightForLengthScreen: {
+    //   screen: WeightForLengthScreen,
+    //   navigationOptions: {
+    //     drawerLabel: 'History',
         
-      }
-    },
-    ReminderScreen:{
-      screen: ReminderScreen,
-      navigationOptions: {
-        title: 'Reminder'
-      }
-    },
-    AddReminder:{
-      screen: AddReminder,
-      navigationOptions: {
-        title: 'Add Reminder'
-      }
-    },
-    NotificationsScreen:{
-      screen: NotificationsScreen,
-      navigationOptions: {
-        title: 'Notification'
-      }
-    },
-    CommunitySupport: {
-      screen: CommunitySupport,
-      navigationOptions: {
-        drawerLabel: 'Community Support',
+    //   }
+    // },
+    // ReminderScreen:{
+    //   screen: ReminderScreen,
+    //   navigationOptions: {
+    //     title: 'Reminder'
+    //   }
+    // },
+    // AddReminder:{
+    //   screen: AddReminder,
+    //   navigationOptions: {
+    //     title: 'Add Reminder'
+    //   }
+    // },
+    // NotificationsScreen:{
+    //   screen: NotificationsScreen,
+    //   navigationOptions: {
+    //     title: 'Notification'
+    //   }
+    // },
+    // CommunitySupport: {
+    //   screen: CommunitySupport,
+    //   navigationOptions: {
+    //     drawerLabel: 'Community Support',
         
-      }
-    },
-    Settings: {
-      screen: Settings,
-      navigationOptions: {
-        drawerLabel: 'Settings',
+    //   }
+    // },
+    // Settings: {
+    //   screen: Settings,
+    //   navigationOptions: {
+    //     drawerLabel: 'Settings',
         
-      }
-    },
+    //   }
+    // },
     MenuScreen:{
       screen:MenuScreen,
       navigationOptions:{
@@ -251,114 +251,114 @@ const DrawerNavigator = createDrawerNavigator(
         title:'',
       }
     },
-    BMICalculator: {
-      screen: BMICalculator,
-      navigationOptions: {
-        drawerLabel: 'BMI Calculator',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/bmiIcon.png")}
-          />
-        ),
-      }
-    },
-    HFSCFDFinder: {
-      screen: HFSCFDFinder,
-      navigationOptions: {
-        drawerLabel: 'All Trackers',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/alltrackerIcon.png")}
-          />
-        ),
-      }
-    },
-    NutritionTrackerScreen: {
-      screen: NutritionTrackerScreen1,
-      navigationOptions: {
-        drawerLabel: 'Nutritution Tracker',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/salad.png")}
-          />
-        ),
-      }
-    },
-    SleepTracker: {
-      screen: SleepTracker,
-      navigationOptions: {
-        drawerLabel: 'Sleep Tracker',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/moonsleepIcon.png")}
-          />
-        ),
-      }
-    },
-    SugarTracker: {
-      screen: SugarTracker,
-      navigationOptions: {
-        drawerLabel: 'Sugar Tracker',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/sugarcubesIcon.png")}
-          />
-        ),
-      }
-    },
-    WeightForLengthScreen: {
-      screen: WeightForLengthScreen,
-      navigationOptions: {
-        drawerLabel: 'History',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/historyIcon.png")}
-          />
-        ),
-      }
-    },
-    ReminderScreen:{
-      screen: ReminderScreen,
-      navigationOptions: {
-        drawerLabel: 'Reminder',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/reminderIcon.png")}
-          />
-        ),
-      }
-    },
-    CommunitySupport: {
-      screen: CommunitySupport,
-      navigationOptions: {
-        drawerLabel: 'Community Support',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/settingsIcon.png")}
-          />
-        ),
-      }
-    },
-    Settings: {
-      screen: Settings,
-      navigationOptions: {
-        drawerLabel: 'Settings',
-        drawerIcon: (
-          <Image
-            style={{ width: 24, height: 24 }}
-            source={require("../assets/settingsIcon.png")}
-          />
-        ),
-      }
-    },
+    // BMICalculator: {
+    //   screen: BMICalculator,
+    //   navigationOptions: {
+    //     drawerLabel: 'BMI Calculator',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/bmiIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // HFSCFDFinder: {
+    //   screen: HFSCFDFinder,
+    //   navigationOptions: {
+    //     drawerLabel: 'All Trackers',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/alltrackerIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // NutritionTrackerScreen: {
+    //   screen: NutritionTrackerScreen1,
+    //   navigationOptions: {
+    //     drawerLabel: 'Nutritution Tracker',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/salad.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // SleepTracker: {
+    //   screen: SleepTracker,
+    //   navigationOptions: {
+    //     drawerLabel: 'Sleep Tracker',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/moonsleepIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // SugarTracker: {
+    //   screen: SugarTracker,
+    //   navigationOptions: {
+    //     drawerLabel: 'Sugar Tracker',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/sugarcubesIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // WeightForLengthScreen: {
+    //   screen: WeightForLengthScreen,
+    //   navigationOptions: {
+    //     drawerLabel: 'History',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/historyIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // ReminderScreen:{
+    //   screen: ReminderScreen,
+    //   navigationOptions: {
+    //     drawerLabel: 'Reminder',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/reminderIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // CommunitySupport: {
+    //   screen: CommunitySupport,
+    //   navigationOptions: {
+    //     drawerLabel: 'Community Support',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/settingsIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
+    // Settings: {
+    //   screen: Settings,
+    //   navigationOptions: {
+    //     drawerLabel: 'Settings',
+    //     drawerIcon: (
+    //       <Image
+    //         style={{ width: 24, height: 24 }}
+    //         source={require("../assets/settingsIcon.png")}
+    //       />
+    //     ),
+    //   }
+    // },
     // MenuScreen:{
     //   screen:MenuScreen,
     //   navigationOptions:{
