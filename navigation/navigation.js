@@ -1,5 +1,5 @@
 import React from 'react';
-import { Platform, Text } from 'react-native';
+import { Platform, Text ,Image} from 'react-native';
 
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
@@ -21,7 +21,7 @@ import OTPScreen from '../views/OTP'
 import CalorieTracker from '../views/CalorieTracker'
 import MenuScreen from '../views/MenuScreen';
 import BMICalculator from '../views/BMICalculator'
-import ReminderScreen1 from '../views/ReminderScreen1'
+import ReminderScreen from '../views/ReminderScreen'
 import SleepTracker from '../views/SleepTracker'
 import SugarTracker from '../views/SugarTracker'
 import WeightForLengthScreen from '../views/WeightForLengthScreen'
@@ -29,7 +29,8 @@ import NutritionTrackerScreen1 from '../views/NutritionTrackerScreen1'
 import HFSCFDFinder from '../views/HFSCFDFinder'
 import CommunitySupport from '../views/ChatScreen'
 import Settings from '../views/Settings'
-
+import NotificationsScreen from '../views/NotificationsScreen'
+import AddReminder from '../views/AddReminder'
 
 
 
@@ -37,7 +38,17 @@ const defaultStackNavOptions = {
    headerStyle: {
      backgroundColor: Platform.OS === 'android' ? Colors.primaryColor : '',
    },
-
+   headerTitleStyle:{
+    textAlign: "center",
+    lineHeight: 22,
+   },
+   headerBackTitleStyle:{
+    fontStyle: 'normal',
+    fontWeight: 300,
+    fontSize: 18,
+    lineHeight: 22,
+    textAlign: "center"
+   },
    headerTintColor:  Platform.OS === 'android' ? Colors.textColor : ''
  };
 
@@ -48,13 +59,13 @@ const StackNavigator = createStackNavigator({
          title:'',
          headerShown: false,
       },
-   },
+    },
     Register:{
       screen:Register,
       navigationOptions:{
          title:'Create Account'
       } 
-  },
+    },
     Login:{
        screen:Login,
        navigationOptions:{
@@ -82,7 +93,108 @@ const StackNavigator = createStackNavigator({
          title:'Create Account'
       } 
    },
-},{
+    BMICalculator: {
+      screen: BMICalculator,
+      navigationOptions: {
+        drawerLabel: 'BMI Calculator',
+        
+      }
+    },
+    HFSCFDFinder: {
+      screen: HFSCFDFinder,
+      navigationOptions: {
+        drawerLabel: 'All Trackers',
+        
+      }
+    },
+    NutritionTrackerScreen: {
+      screen: NutritionTrackerScreen1,
+      navigationOptions: {
+        drawerLabel: 'Nutritution Tracker',
+        
+      }
+    },
+    SleepTracker: {
+      screen: SleepTracker,
+      navigationOptions: {
+        drawerLabel: 'Sleep Tracker',
+        
+      }
+    },
+    SugarTracker: {
+      screen: SugarTracker,
+      navigationOptions: {
+        drawerLabel: 'Sugar Tracker',
+        
+      }
+    },
+    WeightForLengthScreen: {
+      screen: WeightForLengthScreen,
+      navigationOptions: {
+        drawerLabel: 'History',
+        
+      }
+    },
+    ReminderScreen:{
+      screen: ReminderScreen,
+      navigationOptions: {
+        title: 'Reminder'
+      }
+    },
+    AddReminder:{
+      screen: AddReminder,
+      navigationOptions: {
+        title: 'Add Reminder'
+      }
+    },
+    NotificationsScreen:{
+      screen: NotificationsScreen,
+      navigationOptions: {
+        title: 'Notification'
+      }
+    },
+    CommunitySupport: {
+      screen: CommunitySupport,
+      navigationOptions: {
+        drawerLabel: 'Community Support',
+        
+      }
+    },
+    Settings: {
+      screen: Settings,
+      navigationOptions: {
+        drawerLabel: 'Settings',
+        
+      }
+    },
+    MenuScreen:{
+      screen:MenuScreen,
+      navigationOptions:{
+         title:'',
+         headerShown: true,
+      } 
+    },
+    Alarm:{
+      screen:Alarm,
+      navigationOptions:{
+         title:'',
+         headerShown: false,
+      } 
+   },
+    CalorieTracker:{
+      screen:CalorieTracker,
+      navigationOptions:{
+         title:'',
+         headerShown: false,
+      } 
+   },
+    OTP:{
+      screen:OTPScreen,
+      navigationOptions:{
+         title:'Verify Phone'
+      } 
+   },
+  },{
     defaultNavigationOptions: defaultStackNavOptions
 }
 
@@ -133,97 +245,128 @@ const TabNavigator = createBottomTabNavigator(
 
 const DrawerNavigator = createDrawerNavigator(
   {
+    StackNavigator:{
+      screen: StackNavigator,
+      navigationOptions: {
+        title:'',
+      }
+    },
     BMICalculator: {
       screen: BMICalculator,
       navigationOptions: {
         drawerLabel: 'BMI Calculator',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/bmiIcon.png")}
+          />
+        ),
       }
     },
     HFSCFDFinder: {
       screen: HFSCFDFinder,
       navigationOptions: {
         drawerLabel: 'All Trackers',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/alltrackerIcon.png")}
+          />
+        ),
       }
     },
     NutritionTrackerScreen: {
       screen: NutritionTrackerScreen1,
       navigationOptions: {
         drawerLabel: 'Nutritution Tracker',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/salad.png")}
+          />
+        ),
       }
     },
     SleepTracker: {
       screen: SleepTracker,
       navigationOptions: {
         drawerLabel: 'Sleep Tracker',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/moonsleepIcon.png")}
+          />
+        ),
       }
     },
     SugarTracker: {
       screen: SugarTracker,
       navigationOptions: {
         drawerLabel: 'Sugar Tracker',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/sugarcubesIcon.png")}
+          />
+        ),
       }
     },
     WeightForLengthScreen: {
       screen: WeightForLengthScreen,
       navigationOptions: {
         drawerLabel: 'History',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/historyIcon.png")}
+          />
+        ),
       }
     },
     ReminderScreen:{
-      screen: ReminderScreen1,
+      screen: ReminderScreen,
       navigationOptions: {
-        drawerLabel: 'Reminder'
+        drawerLabel: 'Reminder',
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/reminderIcon.png")}
+          />
+        ),
       }
     },
     CommunitySupport: {
       screen: CommunitySupport,
       navigationOptions: {
         drawerLabel: 'Community Support',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/settingsIcon.png")}
+          />
+        ),
       }
     },
     Settings: {
       screen: Settings,
       navigationOptions: {
         drawerLabel: 'Settings',
-        
+        drawerIcon: (
+          <Image
+            style={{ width: 24, height: 24 }}
+            source={require("../assets/settingsIcon.png")}
+          />
+        ),
       }
     },
-    MenuScreen:{
-      screen:MenuScreen,
-      navigationOptions:{
-         title:'',
-         headerShown: true,
-      } 
-    },
-    Alarm:{
-      screen:Alarm,
-      navigationOptions:{
-         title:'',
-         headerShown: false,
-      } 
-   },
-    CalorieTracker:{
-      screen:CalorieTracker,
-      navigationOptions:{
-         title:'',
-         headerShown: false,
-      } 
-   },
-    OTP:{
-      screen:OTPScreen,
-      navigationOptions:{
-         title:'Verify Phone'
-      } 
-   },
+    // MenuScreen:{
+    //   screen:MenuScreen,
+    //   navigationOptions:{
+    //      title:'',
+    //      headerShown: true,
+    //   } 
+    // },
   },
-  
   {
     contentOptions: {
       activeTintColor: Colors.textColor,
@@ -231,6 +374,6 @@ const DrawerNavigator = createDrawerNavigator(
   }
 );
 
-const Navigation =createAppContainer(TabNavigator);
+const Navigation =createAppContainer(DrawerNavigator);
 
 export default Navigation;

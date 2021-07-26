@@ -4,25 +4,23 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  Text,
   Dimensions
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import styled from 'styled-components';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {LineChart} from "react-native-chart-kit";
+import styled from 'styled-components';
+
 
 import HeaderButton from '../components/HeaderButton';
 import CardItem from '../components/CardItem';
 import CircleImage from '../components/CircleImage';
+import Page from '../components/Page'
 
 const screenWidth = Dimensions.get("window").width;
 
 const MenuScreen = props => {
-  const PageView=styled.ScrollView`
-  display:flex;
-  margin:5px
-  `
+
   const HeadText = styled.Text`
   font-style: normal;
   font-weight: bold;
@@ -106,6 +104,8 @@ const MenuScreen = props => {
    flex-direction:row;
    justify-content:space-around;
   `
+
+  // Chart Configurations
   const data = {
     labels: ["06:00", "12:00", "18:00", "24:00"],
     datasets: [
@@ -143,7 +143,7 @@ const MenuScreen = props => {
   };
 
   return (
-    <PageView>
+    <Page>
       {/* Nutrition Tracker Card */}
       <CardItem
         color='#DBF6E9'
@@ -241,7 +241,7 @@ const MenuScreen = props => {
         </CardItem>
      </FooterCards>
      
-    </PageView>
+    </Page>
   );
 };
 
@@ -261,10 +261,14 @@ MenuScreen.navigationOptions = ({ navigation }) => {
       </HeaderButtons>,
     headerRight: () =>
       <View style={styles.headerIcons}>
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} onPress={() => { console.log('abc') }}>
+        {/* Reminder Screen */}
+        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+          onPress={()=>navigation.navigate('ReminderScreen')}>
           <Image source={require('../assets/handIcon.png')} />
         </TouchableOpacity >
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} onPress={() => { console.log('abc') }}>
+        {/* Notification Screen */}
+        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+        onPress={()=>navigation.navigate('NotificationsScreen')}>
           <Image source={require('../assets/bellIcon.png')} />
         </TouchableOpacity >
 
@@ -281,11 +285,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'baseline',
-    margin: 20
+    margin: 10
   },
   Icon: {
     alignItems: 'baseline',
-    marginHorizontal: 20
+    marginHorizontal: 10
   },
   container: {
     flexDirection: 'row',

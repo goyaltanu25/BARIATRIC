@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-export default function CalorieTracker({ navigation }) {
+export default function AddReminder({ navigation }) {
 
   
   return (

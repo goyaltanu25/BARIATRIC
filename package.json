@@ -32,7 +32,8 @@
     "react-navigation-header-buttons": "^7.0.2",
     "react-navigation-stack": "^2.10.4",
     "react-navigation-tabs": "^2.11.1",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "react-native-pager-view": "5.0.12"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
