@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useRef } from 'react';
 import { View, Button, Image, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
 import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 import * as Permissions from 'expo-permissions';
+import NutritionTrackerScreen from '../views/NutritionTrackerScreen'
 
 import Colors from '../constants/Colors';
+
 
 const CameraScreen = props => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [pickedImage, setPickedImage] = useState();
+  const [preview,setIsPreview]=useState(false);
+
+  const cam = useRef();
 
   const verifyPermissions = async () => {
     const result = await Permissions.askAsync(Permissions.CAMERA_ROLL);
@@ -25,14 +30,18 @@ const CameraScreen = props => {
     return true;
   };
 
-  const takeImageHandler = async () => {
-    const hasPermission = await verifyPermissions();
-    if (!hasPermission) {
-      return;
-    }
-    const image = await Camera.takePictureAsync();
+  const _takeImageHandler = async () => {
+    const option={quality:0.5,base64:true,skipProcessing:false}
+    
+    const image = await cam.current.takePictureAsync(option);
 
-    setPickedImage(image.uri);
+    if(image.base64){
+      setPickedImage(image.uri);
+      cam.current.resumePreview();
+      setIsPreview(true);
+      
+    }
+    
   };
 
   useEffect(() => {
@@ -50,7 +59,7 @@ const CameraScreen = props => {
   }
   return (
     <View style={styles.container}>
-      <Camera style={styles.camera} type={type} ref={(ref) => { camera = ref }}>
+      {!preview ? <Camera style={styles.camera} type={type} ref={cam}>
         <View style={styles.headerContainer}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Nutrition Tracker</Text></View>
         
@@ -71,7 +80,7 @@ const CameraScreen = props => {
               alignItems: 'center',
               backgroundColor: 'transparent',
             }}
-            onPress={takeImageHandler}
+            onPress={()=>_takeImageHandler()}
             >
             <FontAwesome
               name="camera"
@@ -95,6 +104,7 @@ const CameraScreen = props => {
         </View>
       
       </Camera>
+      : <NutritionTrackerScreen image={pickedImage}/>}
     </View>
   );
 }
@@ -114,7 +124,10 @@ const styles = StyleSheet.create({
     backgroundColor:'#0000'
   },
   buttonContainer: {
-    flex:1, flexDirection:"row",justifyContent:"space-between",margin:20
+    flex:1, 
+    flexDirection:"row",
+    justifyContent:"space-between",
+    margin:20
   },
   button: {
     flex: 0.2,
