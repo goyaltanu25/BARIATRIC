@@ -9,7 +9,7 @@ export default function Home({ navigation }) {
   }
 
   const login = () => {
-    navigation.navigate('HomeScreen')
+    navigation.navigate('DashboardScreen')
   }
   return (
       <LinearGradient colors={['#f5f5f5','#f5faf9','#f0faf9','#a7dbd7']} style={styles.contentContainer}>

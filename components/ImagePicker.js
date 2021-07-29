@@ -127,6 +127,12 @@ const CameraScreen = props => {
   );
 }
 
+// Header Navigation
+// ImagePicker.navigationOptions = ({ navigation }) => {
+//   return navigation.setOptions({ tabBarVisible: false })
+  
+// }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

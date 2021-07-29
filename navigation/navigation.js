@@ -1,7 +1,7 @@
 import React from 'react';
-import { Platform, Text ,Image} from 'react-native';
-
-import { createAppContainer } from 'react-navigation';
+import { Platform, Text ,Image,View,TouchableOpacity,StyleSheet} from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { createAppContainer,createSwitchNavigator } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createStackNavigator } from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs'
@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/Colors';
 
+import HeaderButton from '../components/HeaderButton';
 import Register from '../views/Register';
 import Login from '../views/Login';
 import Home from '../views/Home';
@@ -32,8 +33,11 @@ import CommunitySupport from '../views/ChatScreen'
 import Settings from '../views/Settings'
 import NotificationsScreen from '../views/NotificationsScreen'
 import AddReminder from '../views/AddReminder'
-
-
+import MyChartScreen from '../views/MyChartScreen'
+import MealPlanner from '../views/MealPlannerScreen1'
+import InfantHealthCareScreen from '../views/InfantHealthCareScreen1'
+import HealthDiagnose from '../views/HealthDiagonosisScreen1'
+import DrawerComponent from '../components/DrawerComponent'
 
 const defaultStackNavOptions = {
    headerStyle: {
@@ -99,288 +103,276 @@ const AuthNavigator = createStackNavigator({
     navigationOptions:{
        title:'Verify Phone'
     } 
- },
-   MenuScreen:{
-    screen:MenuScreen,
-    navigationOptions:{
-       title:'',
-       headerShown: true,
-    } 
   },
   },
-
    {
     defaultNavigationOptions: defaultStackNavOptions
    }
 );
 
-const DashboardNavigator =createStackNavigator({
-    BMICalculator: {
-      screen: BMICalculator,
-      navigationOptions: {
-        drawerLabel: 'BMI Calculator',
-        
-      }
-    },
-    HFSCFDFinder: {
-      screen: HFSCFDFinder,
-      navigationOptions: {
-        drawerLabel: 'All Trackers',
-        
-      }
-    },
-    NutritionTrackerScreen: {
-      screen: NutritionTrackerScreen,
-      navigationOptions: {
-        drawerLabel: 'Nutritution Tracker',
-        
-      }
-    },
-    SleepTracker: {
-      screen: SleepTracker,
-      navigationOptions: {
-        drawerLabel: 'Sleep Tracker',
-        
-      }
-    },
-    SugarTracker: {
-      screen: SugarTracker,
-      navigationOptions: {
-        drawerLabel: 'Sugar Tracker',
-        
-      }
-    },
-    WeightForLengthScreen: {
-      screen: WeightForLengthScreen,
-      navigationOptions: {
-        drawerLabel: 'History',
-        
-      }
-    },
-    ReminderScreen:{
-      screen: ReminderScreen,
-      navigationOptions: {
-        title: 'Reminder'
-      }
-    },
-    AddReminder:{
-      screen: AddReminder,
-      navigationOptions: {
-        title: 'Add Reminder'
-      }
-    },
-    NotificationsScreen:{
-      screen: NotificationsScreen,
-      navigationOptions: {
-        title: 'Notification'
-      }
-    },
-    CommunitySupport: {
-      screen: CommunitySupport,
-      navigationOptions: {
-        drawerLabel: 'Community Support',
-        
-      }
-    },
-    Settings: {
-      screen: Settings,
-      navigationOptions: {
-        drawerLabel: 'Settings',
-        
-      }
-    },
-    Alarm:{
-      screen:Alarm,
-      navigationOptions:{
-         title:'',
-         headerShown: false,
-      } 
-   },
-    CalorieTracker:{
-      screen:CalorieTracker,
-      navigationOptions:{
-         title:'',
-         headerShown: false,
-      } 
-   },
-  },
-  {
-    defaultNavigationOptions: defaultStackNavOptions
-  }
-)
 
-const DashboardDrawer = createDrawerNavigator({
+
+const DashboardTabNavigator = createBottomTabNavigator({
+  Home: {
+    screen: MenuScreen,
+    navigationOptions: {
+      tabBarIcon: tabInfo => {
+        return (
+          <Ionicons name="home" size={25} color={tabInfo.tintColor} />
+        );
+      },
+      tabBarColor: Colors.primaryColor,
+      title:'',
+    }
+  },
+  Camera: {
+    screen: ImagePicker,
+    navigationOptions: {
+      tabBarIcon: tabInfo => {
+        return <Ionicons name="camera" size={25} color={tabInfo.tintColor} />;
+      },
+      tabBarColor: Colors.accentColor,
+      title:'',
+    }
+  },
+  User: {
+   screen: Register,
+   navigationOptions: {
+     tabBarIcon: tabInfo => {
+       return <Ionicons name="person-circle" size={25} color={tabInfo.tintColor} />;
+     },
+     tabBarColor: Colors.accentColor,
+     title:'',
+   }
+  },
+  }, 
+  {
+  tabBarOptions: {
+    activeTintColor: Colors.accentColor
+  },
+  navigationOptions:({navigation})=>{
+    const {routeName}=navigation.state.routes[navigation.state.index]
+    return {headerTitle:routeName}
+  }
+})
+
+const DashboardStackNavigator =createStackNavigator({
+  DashboardTabNavigator:{
+    screen: DashboardTabNavigator,
+    navigationOptions: {
+      title: 'Home', 
+    }
+  },
   BMICalculator: {
     screen: BMICalculator,
     navigationOptions: {
       drawerLabel: 'BMI Calculator',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/bmiIcon.png")}
-        />
-      ),
+      
     }
   },
   HFSCFDFinder: {
     screen: HFSCFDFinder,
     navigationOptions: {
       drawerLabel: 'All Trackers',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/alltrackerIcon.png")}
-        />
-      ),
+      
     }
   },
   NutritionTrackerScreen: {
     screen: NutritionTrackerScreen,
     navigationOptions: {
       drawerLabel: 'Nutritution Tracker',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/salad.png")}
-        />
-      ),
+      
     }
   },
   SleepTracker: {
     screen: SleepTracker,
     navigationOptions: {
       drawerLabel: 'Sleep Tracker',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/moonsleepIcon.png")}
-        />
-      ),
+      
     }
   },
   SugarTracker: {
     screen: SugarTracker,
     navigationOptions: {
       drawerLabel: 'Sugar Tracker',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/sugarcubesIcon.png")}
-        />
-      ),
+      
     }
   },
   WeightForLengthScreen: {
     screen: WeightForLengthScreen,
     navigationOptions: {
       drawerLabel: 'History',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/historyIcon.png")}
-        />
-      ),
+      
     }
   },
   ReminderScreen:{
     screen: ReminderScreen,
     navigationOptions: {
-      drawerLabel: 'Reminder',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/reminderIcon.png")}
-        />
-      ),
+      title: 'Reminder'
+    }
+  },
+  AddReminder:{
+    screen: AddReminder,
+    navigationOptions: {
+      title: 'Add Reminder'
+    }
+  },
+  NotificationsScreen:{
+    screen: NotificationsScreen,
+    navigationOptions: {
+      title: 'Notification'
     }
   },
   CommunitySupport: {
     screen: CommunitySupport,
     navigationOptions: {
       drawerLabel: 'Community Support',
-      drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/settingsIcon.png")}
-        />
-      ),
+      
     }
   },
   Settings: {
     screen: Settings,
     navigationOptions: {
       drawerLabel: 'Settings',
+      
+    }
+  },
+  Alarm:{
+    screen:Alarm,
+    navigationOptions:{
+       title:'',
+       headerShown: false,
+    } 
+ },
+  CalorieTracker:{
+    screen:CalorieTracker,
+    navigationOptions:{
+       title:'',
+       headerShown: false,
+    } 
+ },
+ ChartScreen:{
+   screen:MyChartScreen,
+   navigationOptions:{
+    title:'My Chart',
+    headerShown: false,
+ } 
+ },
+ InfantHealthCare:{
+   screen:InfantHealthCareScreen,
+   navigationOptions:{
+    title:'',
+    headerShown: false,
+ } 
+ },
+ HealthDiagnose:{
+  screen:HealthDiagnose,
+  navigationOptions:{
+   title:'',
+   headerShown: false,
+} 
+},
+ MealPlanner:{
+   screen:MealPlanner,
+   navigationOptions:{
+    title:'',
+    headerShown: false,
+ } 
+},
+User:{
+  screen:Register
+}
+
+},
+{
+  defaultNavigationOptions: ({navigation})=>{
+    return{
+      headerLeft: () =>
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>,
+    headerRight: () =>
+      <View style={styles.headerIcons}>
+        {/* Reminder Screen */}
+        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+          onPress={()=>navigation.navigate('ReminderScreen')}>
+          <Image source={require('../assets/handIcon.png')} />
+        </TouchableOpacity >
+        {/* Notification Screen */}
+        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+        onPress={()=>navigation.navigate('NotificationsScreen')}>
+          <Image source={require('../assets/bellIcon.png')} />
+        </TouchableOpacity >
+
+      </View >,
+
+    }
+  }
+}
+)
+
+const DashboardDrawer = createDrawerNavigator({
+  DashboardScreen:{
+    screen: DashboardStackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Dashboard',
       drawerIcon: (
-        <Image
-          style={{ width: 24, height: 24 }}
-          source={require("../assets/settingsIcon.png")}
+        <Ionicons
+          name="home"
+          size={24}
         />
       ),
     }
   },
-})
-
-const tabScreenConfig = {
-   Dashboard: {
-     screen: MenuScreen,
-     navigationOptions: {
-       tabBarIcon: tabInfo => {
-         return (
-           <Ionicons name="home" size={25} color={tabInfo.tintColor} />
-         );
-       },
-       tabBarColor: Colors.primaryColor,
-       title:'',
-     }
-   },
-   Camera: {
-     screen: ImagePicker,
-     navigationOptions: {
-       tabBarIcon: tabInfo => {
-         return <Ionicons name="camera" size={25} color={tabInfo.tintColor} />;
-       },
-       tabBarColor: Colors.accentColor,
-       title:'',
-     }
-   },
-   User: {
-    screen: Register,
-    navigationOptions: {
-      tabBarIcon: tabInfo => {
-        return <Ionicons name="person-circle" size={25} color={tabInfo.tintColor} />;
-      },
-      tabBarColor: Colors.accentColor,
-      // title:'',
-    }
-  },
-};
-
-const TabNavigator = createBottomTabNavigator(
-   tabScreenConfig, {
-   tabBarOptions: {
-     activeTintColor: Colors.accentColor
-   }
- })
-
-
-
-const DrawerNavigator = createDrawerNavigator(
-  {
-    AuthNavigator:{
-      screen:AuthNavigator,
-      navigationOptions: {
-        title:'',
-      }
+},{
+  drawerBackgroundColor:'#4FB6AD',
+  drawerType:'slide',
+  drawerWidth:300,
+  hideStatusBar:true,
+  unmountInactiveRoutes:true,
+  contentComponent:DrawerComponent,
+  initialRouteName:'DashboardScreen',
+  backBehavior:true,
+  contentOptions:{
+    drawerLockMode: "locked-closed",
+    disableGestures: true,
+    edgeWidth: 0,
+    layout: {
+        orientation: ["portrait"],
     },
-  },
-  {
-    contentOptions: {
-      activeTintColor: Colors.textColor,
-    }
   }
-  
-);
+}
+)
 
-const Navigation =createAppContainer(TabNavigator);
+const SwitchNavigator=createSwitchNavigator({
+  WelcomeScreen:{screen:AuthNavigator},
+  DashboardScreen:{screen:DashboardDrawer}
+})
+const Navigation =createAppContainer(SwitchNavigator);
+
+const styles = StyleSheet.create({
+  headerIcons: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'baseline',
+    margin: 10
+  },
+  Icon: {
+    alignItems: 'baseline',
+    marginHorizontal: 10
+  },
+  container: {
+    flexDirection: 'row',
+    flex: 1,
+    margin: 20
+  },
+});
 
 export default Navigation;

@@ -2,18 +2,18 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  TouchableOpacity,
+  // TouchableOpacity,
   Image,
   Dimensions,
   StatusBar
 } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+// import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {LineChart} from "react-native-chart-kit";
 import styled from 'styled-components';
 
 
-import HeaderButton from '../components/HeaderButton';
+// import HeaderButton from '../components/HeaderButton';
 import CardItem from '../components/CardItem';
 import CircleImage from '../components/CircleImage';
 import Page from '../components/Page'
@@ -170,10 +170,33 @@ const MenuScreen = props => {
       
       {/* Circular Images */}
       <View style={styles.container}>
-        <CircleImage src={require('../assets/mychart.png')} title="My Chart" />
-        <CircleImage src={require('../assets/mealplanner.png')} title="Meal Planner" />
-        <CircleImage src={require('../assets/healthdiagnose.png')} title="Health Diagnose" />
-        <CircleImage src={require('../assets/infantcare.png')} title="Infant HealthCare" />
+        <CircleImage src={require('../assets/mychart.png')} title="My Chart" 
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: 'ChartScreen',
+          })}}
+          />
+        <CircleImage src={require('../assets/mealplanner.png')} 
+        title="Meal Planner" 
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: 'MealPlanner',
+          })}}
+        />
+        <CircleImage src={require('../assets/healthdiagnose.png')} 
+        title="Health Diagnose" 
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: 'HealthDiagnose',
+          })}}
+        />
+        <CircleImage src={require('../assets/infantcare.png')} 
+        title="Infant HealthCare" 
+        onSelect={() => {
+          props.navigation.navigate({
+            routeName: 'InfantHealthCare',
+          })}}
+        />
       </View>
 
      {/* Chart Header  */}
@@ -242,30 +265,30 @@ const MenuScreen = props => {
 MenuScreen.navigationOptions = ({ navigation }) => {
   return {
     headerTitle: 'Home',
-    headerLeft: () =>
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            navigation.toggleDrawer();
-          }}
-        />
-      </HeaderButtons>,
-    headerRight: () =>
-      <View style={styles.headerIcons}>
-        {/* Reminder Screen */}
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
-          onPress={()=>navigation.navigate('ReminderScreen')}>
-          <Image source={require('../assets/handIcon.png')} />
-        </TouchableOpacity >
-        {/* Notification Screen */}
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
-        onPress={()=>navigation.navigate('NotificationsScreen')}>
-          <Image source={require('../assets/bellIcon.png')} />
-        </TouchableOpacity >
+    // headerLeft: () =>
+    //   <HeaderButtons HeaderButtonComponent={HeaderButton}>
+    //     <Item
+    //       title="Menu"
+    //       iconName="ios-menu"
+    //       onPress={() => {
+    //         navigation.toggleDrawer();
+    //       }}
+    //     />
+    //   </HeaderButtons>,
+    // headerRight: () =>
+    //   <View style={styles.headerIcons}>
+    //     {/* Reminder Screen */}
+    //     <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+    //       onPress={()=>navigation.navigate('ReminderScreen')}>
+    //       <Image source={require('../assets/handIcon.png')} />
+    //     </TouchableOpacity >
+    //     {/* Notification Screen */}
+    //     <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+    //     onPress={()=>navigation.navigate('NotificationsScreen')}>
+    //       <Image source={require('../assets/bellIcon.png')} />
+    //     </TouchableOpacity >
 
-      </View >,
+    //   </View >,
 
   };
 }

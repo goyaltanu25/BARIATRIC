@@ -7,10 +7,10 @@ import {dummyData} from '../data/dummyData'
 
 export default function Home({navigation}) {
   const register=()=>{
-    navigation.navigate('Alarm')
+    navigation.navigate('Register')
   }
   const login=()=>{
-  navigation.push('MenuScreen')
+  navigation.navigate('DashboardScreen')
   }
   return (
     <ScrollView>

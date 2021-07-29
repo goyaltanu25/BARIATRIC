@@ -1,12 +1,7 @@
 import React,{useState} from 'react';
-import { StyleSheet ,View } from 'react-native';
+import { StyleSheet ,View ,LogBox} from 'react-native';
 
-
-// import { StatusBar } from 'expo-status-bar';
-import * as Fonts from 'expo-font';
-// import {AppLoading} from 'expo';
-
-
+// import * as Fonts from 'expo-font';
 
 import Navigation from './navigation/navigation';
 
@@ -35,12 +30,8 @@ export default function App() {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    marginHorizontal: 20,
-    marginVertical:80,
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
-  },
-})
+// Ignore log notification by message
+LogBox.ignoreLogs(['Warning: ...']);
+
+//Ignore all log notifications
+LogBox.ignoreAllLogs();

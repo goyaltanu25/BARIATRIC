@@ -42,7 +42,7 @@ export default function Login({navigation}) {
         <Icon style={styles.icon} name="arrowright" size={20} color="#000" />
       </View>
        
-      <TouchableOpacity onPress={()=>navigation.navigate('HomeScreen')}>
+      <TouchableOpacity onPress={()=>navigation.navigate('DashboardScreen')}>
         <View style={styles.customBtn}>
         <Text style={{ color: 'black' }}>Next</Text>
         </View>

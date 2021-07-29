@@ -18,6 +18,7 @@
     "expo-image-picker": "~10.2.2",
     "expo-linear-gradient": "~9.2.0",
     "expo-status-bar": "~1.0.4",
+    "native-base": "^3.0.6",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
@@ -37,7 +38,8 @@
     "react-navigation-header-buttons": "^7.0.2",
     "react-navigation-stack": "^2.10.4",
     "react-navigation-tabs": "^2.11.1",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "styled-system": "^5.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"
