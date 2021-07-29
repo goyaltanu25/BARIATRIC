@@ -4,7 +4,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Image,
-  Dimensions
+  Dimensions,
+  StatusBar
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -144,16 +145,14 @@ const MenuScreen = props => {
 
   return (
     <Page>
+      <StatusBar color="black"/>
       {/* Nutrition Tracker Card */}
       <CardItem
         color='#DBF6E9'
         height='100px'
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'CalorieTracker',
-            params: {
-              categoryId: itemData.item.id
-            }
+            routeName: 'NutritionTrackerScreen',
           });
         }}
       >
