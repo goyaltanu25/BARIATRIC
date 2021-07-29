@@ -62,7 +62,7 @@ const NutritionTrackerScreen = props => {
             <DetailsText style={{ padding: 6 }}>Today</DetailsText>
             <Ionicons name="md-chevron-down-outline" size={22} color="#4FB6AD" style={{ padding: 6 }} />
           </DetailsView>
-          <AntDesign name="upload" size={22} color="#4FB6AD" />
+          <AntDesign name="upload" size={22} color="#0A0E0D" />
         </HeaderView>
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' }}>
           <Text style={{ margin: 10, fontSize: 25, fontWeight: 'bold' }}>
@@ -155,13 +155,9 @@ const styles = StyleSheet.create({
     width: 400,
   },
   row:{
-    color: 'black',
-    fontSize: 18,
     padding: 5
   },
   title: {
-    color: 'black',
-    fontSize: 18,
     padding: 5
   },
   address: {

@@ -36,10 +36,28 @@ const CameraScreen = props => {
     const image = await cam.current.takePictureAsync(option);
 
     if(image.base64){
+      let params ={
+        method:'POST',
+        mode:'no-cors',
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        data:{
+        label:"Orange",
+        user_id:"1",
+        image:image.base64
+      }
+      }
+      fetch('http://pressbroadcasters.com/SmartNutrition/admin/index.php/SearchItem',params)
+      .then((res)=>
+      {
+      console.log('check',res)
       setPickedImage(image.uri);
-      cam.current.resumePreview();
       setIsPreview(true);
-      
+      }
+      )
+      .catch((err)=>console.log(err))
+     
     }
     
   };

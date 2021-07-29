@@ -208,10 +208,7 @@ const MenuScreen = props => {
         height='60px'
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'CalorieTracker',
-            params: {
-              categoryId: itemData.item.id
-            }
+            routeName: 'NutritionTrackerScreen',
           });
         }}>
         <Image source={require('../assets/points.png')} style={{ position: 'absolute', height: 60, width: 52 }} />
@@ -229,10 +226,7 @@ const MenuScreen = props => {
         height='60px'
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'CalorieTracker',
-            params: {
-              categoryId: itemData.item.id
-            }
+            routeName: 'NutritionTrackerScreen',
           });
         }}>
           <Image source={require('../assets/planner.png')} style={{ position: 'absolute', height: 60, width: 52 }} />

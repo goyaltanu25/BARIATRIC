@@ -108,6 +108,7 @@ const AuthNavigator = createStackNavigator({
     } 
   },
   },
+
    {
     defaultNavigationOptions: defaultStackNavOptions
    }
@@ -351,8 +352,9 @@ const tabScreenConfig = {
       tabBarColor: Colors.accentColor,
       // title:'',
     }
-  }
- };
+  },
+};
+
 const TabNavigator = createBottomTabNavigator(
    tabScreenConfig, {
    tabBarOptions: {
