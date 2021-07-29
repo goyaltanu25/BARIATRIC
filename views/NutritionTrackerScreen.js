@@ -50,11 +50,11 @@ const NutritionTrackerScreen = props => {
   font-size: 16px;
   color: #4FB6AD;
   `
-
+ const uri = props.navigation.state.params ? props.navigation.state.params.image : '';
   return (
     <>
       <StatusBar translucent backgroundColor="transparent" />
-      <Image style={styles.image} source={{ uri: props.image }} />
+      {uri ?<Image style={styles.image} source={{ uri:uri }} />:<Text>Add an Image</Text>}
       <Page>
         <HeaderView>
           <DetailsView>

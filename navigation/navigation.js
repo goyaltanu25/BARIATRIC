@@ -166,42 +166,42 @@ const DashboardStackNavigator =createStackNavigator({
   BMICalculator: {
     screen: BMICalculator,
     navigationOptions: {
-      drawerLabel: 'BMI Calculator',
+      title: 'BMI Calculator',
       
     }
   },
   HFSCFDFinder: {
-    screen: HFSCFDFinder,
+    screen: Alarm,
     navigationOptions: {
-      drawerLabel: 'All Trackers',
+      title: 'All Trackers',
       
     }
   },
   NutritionTrackerScreen: {
     screen: NutritionTrackerScreen,
     navigationOptions: {
-      drawerLabel: 'Nutritution Tracker',
+      title: 'Nutritution Tracker',
       
     }
   },
   SleepTracker: {
     screen: SleepTracker,
     navigationOptions: {
-      drawerLabel: 'Sleep Tracker',
+      title: 'Sleep Tracker',
       
     }
   },
   SugarTracker: {
     screen: SugarTracker,
     navigationOptions: {
-      drawerLabel: 'Sugar Tracker',
+      title: 'Sugar Tracker',
       
     }
   },
   WeightForLengthScreen: {
     screen: WeightForLengthScreen,
     navigationOptions: {
-      drawerLabel: 'History',
+      title: 'History',
       
     }
   },
@@ -226,61 +226,57 @@ const DashboardStackNavigator =createStackNavigator({
   CommunitySupport: {
     screen: CommunitySupport,
     navigationOptions: {
-      drawerLabel: 'Community Support',
+      title: 'Community Support',
       
     }
   },
   Settings: {
     screen: Settings,
     navigationOptions: {
-      drawerLabel: 'Settings',
-      
+      title: 'Settings',
     }
   },
   Alarm:{
     screen:Alarm,
     navigationOptions:{
-       title:'',
-       headerShown: false,
+       title:'Alarm',
     } 
  },
   CalorieTracker:{
     screen:CalorieTracker,
     navigationOptions:{
-       title:'',
-       headerShown: false,
+       title:'Calorie Tracker',
     } 
  },
  ChartScreen:{
    screen:MyChartScreen,
    navigationOptions:{
     title:'My Chart',
-    headerShown: false,
  } 
  },
  InfantHealthCare:{
    screen:InfantHealthCareScreen,
    navigationOptions:{
-    title:'',
-    headerShown: false,
+    title:'Infant HealthCare',
  } 
  },
  HealthDiagnose:{
   screen:HealthDiagnose,
   navigationOptions:{
-   title:'',
-   headerShown: false,
+   title:'Health Diagnose',
 } 
 },
  MealPlanner:{
    screen:MealPlanner,
    navigationOptions:{
-    title:'',
-    headerShown: false,
+    title:'Meal Planner',
  } 
 },
 User:{
-  screen:Register
+  screen:Register, 
+  navigationOptions:{
+    title:'User',
+ } 
 }
 
 },

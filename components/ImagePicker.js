@@ -1,19 +1,15 @@
 import React, { useEffect, useState,useRef } from 'react';
-import { View, Button, Image, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
+import { View,Text, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
-import { FontAwesome, Ionicons, MaterialIcons } from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
+import { FontAwesome, MaterialIcons } from '@expo/vector-icons';
 import * as Permissions from 'expo-permissions';
 import NutritionTrackerScreen from '../views/NutritionTrackerScreen'
-
-import Colors from '../constants/Colors';
 
 
 const CameraScreen = props => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
   const [pickedImage, setPickedImage] = useState();
-  const [preview,setIsPreview]=useState(false);
 
   const cam = useRef();
 
@@ -53,11 +49,10 @@ const CameraScreen = props => {
       {
       console.log('check',res)
       setPickedImage(image.uri);
-      setIsPreview(true);
       }
       )
       .catch((err)=>console.log(err))
-     
+      props.navigation.navigate('NutritionTrackerScreen',{image:image.uri})
     }
     
   };
@@ -77,7 +72,7 @@ const CameraScreen = props => {
   }
   return (
     <View style={styles.container}>
-      {!preview ? <Camera style={styles.camera} type={type} ref={cam}>
+      <Camera style={styles.camera} type={type} ref={cam}>
         <View style={styles.headerContainer}>
           <Text style={{ color: "#fff", fontSize: 20 }}>Nutrition Tracker</Text></View>
         
@@ -122,7 +117,7 @@ const CameraScreen = props => {
         </View>
       
       </Camera>
-      : <NutritionTrackerScreen image={pickedImage}/>}
+    
     </View>
   );
 }
