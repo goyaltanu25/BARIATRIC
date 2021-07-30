@@ -38,6 +38,7 @@ import MealPlanner from '../views/MealPlannerScreen1'
 import InfantHealthCareScreen from '../views/InfantHealthCareScreen1'
 import HealthDiagnose from '../views/HealthDiagonosisScreen1'
 import DrawerComponent from '../components/DrawerComponent'
+import ProfilePage from '../views/ProfilePage';
 
 const defaultStackNavOptions = {
    headerStyle: {
@@ -136,13 +137,14 @@ const DashboardTabNavigator = createBottomTabNavigator({
     }
   },
   User: {
-   screen: Register,
+   screen: ProfilePage,
    navigationOptions: {
      tabBarIcon: tabInfo => {
        return <Ionicons name="person-circle" size={25} color={tabInfo.tintColor} />;
      },
      tabBarColor: Colors.accentColor,
      title:'',
+     headerTitle:'My Profile'
    }
   },
   }, 
@@ -275,9 +277,10 @@ const DashboardStackNavigator =createStackNavigator({
 User:{
   screen:Register, 
   navigationOptions:{
-    title:'User',
+    title:'My Profile'
+  }
  } 
-}
+
 
 },
 {
