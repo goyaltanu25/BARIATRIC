@@ -91,27 +91,27 @@ color: ${Colors.textColor};
 }
 
 // Header Navigation
-Settings.navigationOptions = ({ navigation }) => {
-    return {
-        headerTitle: 'Settings',
-        headerLeft: () =>
-            <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item
-                    iconName="chevron-back-outline"
-                    onPress={() => {
-                        navigation.goBack();
-                    }}
-                />
-            </HeaderButtons>,
-        headerRight: () =>
-        <View style={styles.headerIcons}>
-            <TouchableOpacity activeOpacity={0.7} style={styles.Icon} onPress={() => navigation.navigate('AddReminder')}>
-                <Image source={require('../assets/success 2.png')} />
-            </TouchableOpacity >
-        </View>    
+// Settings.navigationOptions = ({ navigation }) => {
+//     return {
+//         headerTitle: 'Settings',
+//         headerLeft: () =>
+//             <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//                 <Item
+//                     iconName="chevron-back-outline"
+//                     onPress={() => {
+//                         navigation.goBack();
+//                     }}
+//                 />
+//             </HeaderButtons>,
+//         headerRight: () =>
+//         <View style={styles.headerIcons}>
+//             <TouchableOpacity activeOpacity={0.7} style={styles.Icon} onPress={() => navigation.navigate('AddReminder')}>
+//                 <Image source={require('../assets/success 2.png')} />
+//             </TouchableOpacity >
+//         </View>    
 
-    };
-}
+//     };
+// }
 
 const styles = StyleSheet.create({
   borderBottom:{

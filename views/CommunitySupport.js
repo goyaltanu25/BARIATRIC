@@ -57,29 +57,6 @@ const CommunitySupport = props => {
   `
   return (
     <Page>
-      <CustomTabView>
-          <View style={{
-            flexDirection: 'row',
-            justifyContent:'space-around',
-            alignItems:'baseline'
-          }}>
-          <SubText1>Hobbies</SubText1>
-          <Ionicons name="chevron-down" size={20} color="grey"/>
-          </View>
-          
-          
-          <View style={{
-            flexDirection: 'row',
-            width: 67,
-            height: 35,
-            backgroundColor: '#CFEFE9',
-            borderRadius: 12,
-          }}>
-            <Text style={{ marginHorizontal: 14, marginVertical:8,fontSize: 14, color: '#4FB6AD' }}>
-              Invite
-            </Text>
-          </View>
-      </CustomTabView>
       <CardItem
         color='#F3F3F3'
         height='80px'
@@ -106,26 +83,6 @@ week cardio challenge today.</PhoneText>
     </Page>
   );
 };
-
-CommunitySupport.navigationOptions = ({ navigation }) => {
-  return {
-    headerTitle: 'Message Board',
-    headerLeft: () =>
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          iconName="chevron-back-outline"
-          onPress={() => {
-            navigation.goBack();
-          }}
-        />
-      </HeaderButtons>,
-    headerRight: () =>
-      <View style={styles.headerIcons}/>
-
-  };
-}
-
-
 
 const styles = StyleSheet.create({
   headerIcons: {

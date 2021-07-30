@@ -1,17 +1,12 @@
 import React from 'react';
 import {
-    View,
-    StyleSheet,
-    TouchableOpacity,
     Image,
-    Dimensions,
     StatusBar
 } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+
 import styled from 'styled-components';
 
 
-import HeaderButton from '../components/HeaderButton';
 import CardItem from '../components/CardItem';
 import Page from '../components/Page'
 
@@ -116,57 +111,6 @@ const AllTrackers = props => {
     );
 };
 
-// Header Navigation
-AllTrackers.navigationOptions = ({ navigation }) => {
-    return {
-        headerTitle: 'All Trackers',
-        headerLeft: () =>
-            <HeaderButtons HeaderButtonComponent={HeaderButton}>
-                <Item
-                    title="Menu"
-                    iconName="ios-menu"
-                    onPress={() => {
-                        navigation.toggleDrawer();
-                    }}
-                />
-            </HeaderButtons>,
-        headerRight: () =>
-            <View style={styles.headerIcons}>
-                {/* Reminder Screen */}
-                <TouchableOpacity style={styles.Icon} activeOpacity={0.7}
-                    onPress={() => navigation.navigate('ReminderScreen')}>
-                    <Image source={require('../assets/handIcon.png')} />
-                </TouchableOpacity >
-                {/* Notification Screen */}
-                <TouchableOpacity style={styles.Icon} activeOpacity={0.7}
-                    onPress={() => navigation.navigate('NotificationsScreen')}>
-                    <Image source={require('../assets/bellIcon.png')} />
-                </TouchableOpacity >
 
-            </View >,
-
-    };
-}
-
-
-
-const styles = StyleSheet.create({
-    headerIcons: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        alignItems: 'baseline',
-        margin: 10
-    },
-    Icon: {
-        alignItems: 'baseline',
-        marginHorizontal: 10
-    },
-    container: {
-        flexDirection: 'row',
-        flex: 1,
-        margin: 20
-    },
-});
 
 export default AllTrackers;

@@ -1,14 +1,16 @@
 import { AntDesign, Foundation, Ionicons } from '@expo/vector-icons';
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
 import { StatusBar } from 'expo-status-bar';
+import * as ImagePicker from 'expo-image-picker';
 
 import Colors from '../constants/Colors';
 import Page from '../components/Page';
 import CardItem from '../components/CardItem';
 import IconImage from '../components/IconImage';
+import { useEffect } from 'react/cjs/react.production.min';
 
 
 const CONTENT = {
@@ -24,6 +26,20 @@ const CONTENT = {
 };
 
 const NutritionTrackerScreen = props => {
+  const [uri,setImage]=useState();
+
+  let openImagePickerAsync = async () => {
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
+
+    if (permissionResult.granted === false) {
+      alert("Permission to access camera roll is required!");
+      return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    setImage(pickerResult.uri);
+  }
+
   const HeaderView = styled.View`
   display:flex;
   align-items:baseline;
@@ -50,19 +66,41 @@ const NutritionTrackerScreen = props => {
   font-size: 16px;
   color: #4FB6AD;
   `
- const uri = props.navigation.state.params ? props.navigation.state.params.image : '';
+  const ImageContainer =styled.TouchableOpacity`
+  justify-content:center;
+  margin:20% 22%;
+  `
+  const BoldText=styled.Text`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  `
+  // useEffect(()=>{
+  //   const uri= props.navigation.state.params ? props.navigation.state.params.image : '';
+  //   setImage(uri)
+  // },[uri])
+  
+
   return (
     <>
       <StatusBar translucent backgroundColor="transparent" />
-      {uri ?<Image style={styles.image} source={{ uri:uri }} />:<Text>Add an Image</Text>}
+      {uri ?<Image style={styles.image} source={{ uri:uri }} />:
+       <ImageContainer onPress={openImagePickerAsync}>
+           <BoldText>Click Here to Add an Image</BoldText>
+       </ImageContainer>
+      
+      }
       <Page>
         <HeaderView>
           <DetailsView>
             <Foundation name="calendar" size={22} color="#4FB6AD" style={{ padding: 6 }} />
             <DetailsText style={{ padding: 6 }}>Today</DetailsText>
+            
             <Ionicons name="md-chevron-down-outline" size={22} color="#4FB6AD" style={{ padding: 6 }} />
           </DetailsView>
-          <AntDesign name="upload" size={22} color="#0A0E0D" />
+          <TouchableOpacity onPress={openImagePickerAsync}>
+            <AntDesign name="upload" size={22} color="#0A0E0D" />
+          </TouchableOpacity>
         </HeaderView>
         <View style={{ flex: 1, flexDirection: 'row', alignItems: 'baseline', justifyContent: 'space-between' }}>
           <Text style={{ margin: 10, fontSize: 25, fontWeight: 'bold' }}>

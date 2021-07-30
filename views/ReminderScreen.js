@@ -71,11 +71,13 @@ margin-left:5%
 width:240px
 `
 
-const Taken = () => (
+const Taken = ({...navigation}) => (
   <View>
     <CustomTabView>
       <SubText>Morning</SubText>
+      <TouchableOpacity onPress={() => navigation.navigate('AddReminder')}>
       <Ionicons name="add" size={20} color={Colors.textColor} />
+      </TouchableOpacity>
     </CustomTabView>
     <CardItem
       color='#DBF6E9'
@@ -115,7 +117,9 @@ const Taken = () => (
     </CardItem>
     <CustomTabView>
       <SubText>Night</SubText>
+      <TouchableOpacity onPress={() => navigation.navigate('AddReminder')}>
       <Ionicons name="add" size={20} color={Colors.textColor} />
+      </TouchableOpacity>
     </CustomTabView>
     <CardItem
       color='#FAFAFA'
@@ -156,11 +160,13 @@ const Taken = () => (
   </View>
 );
 
-const Missed = () => (
+const Missed = ({...navigation}) => (
   <View>
     <CustomTabView>
       <SubText>Morning</SubText>
+      <TouchableOpacity onPress={() => navigation.navigate('AddReminder')}>
       <Ionicons name="add" size={20} color={Colors.textColor} />
+      </TouchableOpacity>
     </CustomTabView>
     <CardItem
       color='#DBF6E9'
@@ -212,8 +218,8 @@ export default function ReminderScreen({ navigation }) {
   ]);
 
   const renderScene = SceneMap({
-    first: Taken,
-    second: Missed,
+    first: ()=><Taken {...navigation}/>,
+    second:()=> <Missed {...navigation}/>,
   });
 
   const renderLabel = ({ route, focused, color }) => {
@@ -254,28 +260,28 @@ export default function ReminderScreen({ navigation }) {
 }
 
 // Header Navigation
-ReminderScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerTitle: 'Reminder',
-    headerLeft: () =>
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          iconName="chevron-back-outline"
-          onPress={() => {
-            navigation.goBack();
-          }}
-        />
-      </HeaderButtons>,
-    headerRight: () =>
-      <AddButtonView>
-        {/* Add Reminder Screen */}
-        <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('AddReminder')}>
-          <Ionicons name='add' size={26} color={Colors.textColor} />
-        </TouchableOpacity >
-      </AddButtonView>,
+// ReminderScreen.navigationOptions = ({ navigation }) => {
+//   return {
+//     headerTitle: 'Reminder',
+//     headerLeft: () =>
+//       <HeaderButtons HeaderButtonComponent={HeaderButton}>
+//         <Item
+//           iconName="chevron-back-outline"
+//           onPress={() => {
+//             navigation.goBack();
+//           }}
+//         />
+//       </HeaderButtons>,
+//     headerRight: () =>
+//       <AddButtonView>
+//         {/* Add Reminder Screen */}
+//         <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('AddReminder')}>
+//           <Ionicons name='add' size={26} color={Colors.textColor} />
+//         </TouchableOpacity >
+//       </AddButtonView>,
 
-  };
-}
+//   };
+// }
 
 const styles = StyleSheet.create({
   activeTabTextColor: {

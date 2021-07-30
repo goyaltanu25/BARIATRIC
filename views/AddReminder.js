@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState}from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Button, TextInput, } from 'react-native';
 import { Formik } from 'formik';
 import styled from 'styled-components'
@@ -8,7 +8,21 @@ import IconImage from '../components/IconImage';
 import Page from '../components/Page';
 
 export default function AddReminder({ navigation }) {
-
+    const [tablet,setTablet]=useState(true);
+    const [injection,setInjection]=useState(false);
+    const [syrup,setSyrup]=useState(false);
+    const [pill,setPill]=useState(false);
+    const [butter,setButter]=useState(false);
+  
+    const setActive=(user)=>{
+      if(user === "male"){
+        setMale(true)
+        setFemale(false)
+      }else if(user=== "female"){
+        setFemale(true)
+        setMale(false)
+      }
+    }
 
     const ColView = styled.View`
     display:flex;
@@ -29,20 +43,20 @@ export default function AddReminder({ navigation }) {
             <CardItem color='#FAFAFA'
                 height='550px'>
                 <View style={styles.container}>
-                    <TouchableOpacity onPress={() => console.log('Save data')}>
+                    <TouchableOpacity onPress={() => setActive('tablet')}>
                         <IconImage src={require('../assets/tablet.png')} title="" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log('Save data')}>
+                    <TouchableOpacity onPress={() => setActive('injection')}>
                         <IconImage src={require('../assets/injection.png')} title="" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log('Save data')}>
+                    <TouchableOpacity onPress={() => setActive('syrup')}>
                         <IconImage src={require('../assets/syrup.png')} title="" />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log('Save data')}>
+                    <TouchableOpacity onPress={() => setActive('pill')}>
                         <IconImage src={require('../assets/pill.png')} title="" />
                     </TouchableOpacity>
 
-                    <TouchableOpacity onPress={() => console.log('Save data')}>
+                    <TouchableOpacity onPress={() => setActive('butter')}>
                         <IconImage src={require('../assets/butter.png')} title="" />
                     </TouchableOpacity>
 

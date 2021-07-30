@@ -304,7 +304,20 @@ User:{
           }}
         />
       </HeaderButtons>,
-    headerRight: () =>null,
+      headerRight: () =>
+      <View style={styles.headerIcons}>
+          {/* Reminder Screen */}
+          <TouchableOpacity style={styles.Icon} activeOpacity={0.7}
+              onPress={() => navigation.navigate('ReminderScreen')}>
+              <Image source={require('../assets/handIcon.png')} />
+          </TouchableOpacity >
+          {/* Notification Screen */}
+          <TouchableOpacity style={styles.Icon} activeOpacity={0.7}
+              onPress={() => navigation.navigate('NotificationsScreen')}>
+              <Image source={require('../assets/bellIcon.png')} />
+          </TouchableOpacity >
+
+      </View >,
 
     }
   }
@@ -324,7 +337,8 @@ const DashboardDrawer = createDrawerNavigator({
       ),
     }
   },
-},{
+},
+{
   drawerBackgroundColor:'#4FB6AD',
   drawerType:'slide',
   drawerWidth:300,
