@@ -29,7 +29,7 @@ import WeightForLengthScreen from '../views/WeightForLengthScreen'
 import NutritionTrackerScreen from '../views/NutritionTrackerScreen'
 import ImagePicker from '../components/ImagePicker'
 import HFSCFDFinder from '../views/HFSCFDFinder'
-import CommunitySupport from '../views/ChatScreen'
+import CommunitySupport from '../views/CommunitySupport'
 import Settings from '../views/Settings'
 import NotificationsScreen from '../views/NotificationsScreen'
 import AddReminder from '../views/AddReminder'
@@ -200,8 +200,8 @@ const DashboardStackNavigator =createStackNavigator({
       
     }
   },
-  WeightForLengthScreen: {
-    screen: WeightForLengthScreen,
+  History: {
+    screen: Alarm,
     navigationOptions: {
       title: 'History',
       
@@ -228,7 +228,7 @@ const DashboardStackNavigator =createStackNavigator({
   CommunitySupport: {
     screen: CommunitySupport,
     navigationOptions: {
-      title: 'Community Support',
+      title: 'Message Board',
       
     }
   },
