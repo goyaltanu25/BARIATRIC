@@ -1,11 +1,12 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {
   View,
   Text,
   FlatList,
   StyleSheet,
   TouchableOpacity,
-  Image
+  Image,
+  TextInput
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { Ionicons } from '@expo/vector-icons';
@@ -19,7 +20,7 @@ import Page from '../components/Page';
 import styled from 'styled-components';
 
 const BMICalculator = props => {
-
+  const [password,onChangePassword]=useState();
   const FlexItem=styled.View`
   display:flex;
   flex-direction:row;
@@ -34,7 +35,7 @@ const BMICalculator = props => {
   margin:25%
   `
  
-  const ValueText=styled.Text`
+  const ValueText=styled.TextInput`
   font-style: normal;
   font-weight: 600;
   font-size: 30px;
@@ -81,7 +82,7 @@ const BMICalculator = props => {
           <Image source={require('../assets/calendar.png')}/>
           <View>
           <DescText style={{marginHorizontal:20,textAlign:'center'}}>Age</DescText>
-          <ValueText style={{marginHorizontal:20,textAlign:'center'}}>24</ValueText>
+          <ValueText style={{marginHorizontal:20,textAlign:'center'}}>25</ValueText>
           </View>
         </FlexItem>
 
