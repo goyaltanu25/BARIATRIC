@@ -39,6 +39,8 @@ import InfantHealthCareScreen from '../views/InfantHealthCareScreen1'
 import HealthDiagnose from '../views/HealthDiagonosisScreen1'
 import DrawerComponent from '../components/DrawerComponent'
 import ProfilePage from '../views/ProfilePage';
+import AllTrackers from '../views/AllTrackers';
+
 
 const defaultStackNavOptions = {
    headerStyle: {
@@ -172,8 +174,22 @@ const DashboardStackNavigator =createStackNavigator({
       
     }
   },
+  BMICalculatorScreen:{
+    screen: BMICalculator,
+    navigationOptions: {
+      title: 'BMI Calculator',
+      
+    }
+  },
   HFSCFDFinder: {
-    screen: Alarm,
+    screen: HFSCFDFinder,
+    navigationOptions: {
+      title: 'HFSCFD Finder',
+      
+    }
+  },
+  AllTrackers:{
+    screen:AllTrackers,
     navigationOptions: {
       title: 'All Trackers',
       
@@ -183,7 +199,6 @@ const DashboardStackNavigator =createStackNavigator({
     screen: NutritionTrackerScreen,
     navigationOptions: {
       title: 'Nutritution Tracker',
-      
     }
   },
   SleepTracker: {
@@ -197,13 +212,6 @@ const DashboardStackNavigator =createStackNavigator({
     screen: SugarTracker,
     navigationOptions: {
       title: 'Sugar Tracker',
-      
-    }
-  },
-  History: {
-    screen: Alarm,
-    navigationOptions: {
-      title: 'History',
       
     }
   },
@@ -228,7 +236,7 @@ const DashboardStackNavigator =createStackNavigator({
   CommunitySupport: {
     screen: CommunitySupport,
     navigationOptions: {
-      title: 'Message Board',
+      title: 'FAQ',
       
     }
   },
@@ -296,20 +304,7 @@ User:{
           }}
         />
       </HeaderButtons>,
-    headerRight: () =>
-      <View style={styles.headerIcons}>
-        {/* Reminder Screen */}
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
-          onPress={()=>navigation.navigate('ReminderScreen')}>
-          <Image source={require('../assets/handIcon.png')} />
-        </TouchableOpacity >
-        {/* Notification Screen */}
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
-        onPress={()=>navigation.navigate('NotificationsScreen')}>
-          <Image source={require('../assets/bellIcon.png')} />
-        </TouchableOpacity >
-
-      </View >,
+    headerRight: () =>null,
 
     }
   }

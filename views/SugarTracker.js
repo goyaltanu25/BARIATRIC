@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, useWindowDimensions, Dimensions, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
+import { View, useWindowDimensions, Dimensions, Image,TextInput,TouchableOpacity, StyleSheet, Text } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import styled from 'styled-components';
 import { BarChart } from 'react-native-chart-kit';
@@ -40,7 +40,17 @@ const chartConfig = {
 };
 export default function SugarTracker({ navigation }) {
 
-    const BoldText = styled.Text`
+    const BoldText1 = styled.TextInput`
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 20px;
+letter-spacing: 0.5px;
+color: ${Colors.textColor};
+text-align:center;
+padding-vertical:5px
+`
+const BoldText = styled.TextInput`
 font-style: normal;
 font-weight: bold;
 font-size: 20px;
@@ -123,7 +133,7 @@ const WrapView = styled.View`
             >
                 <WrapView>
                     <Image source={require('../assets/diabetes.png')} />
-                    <BoldText>142.0</BoldText>
+                    <BoldText1>142.0</BoldText1>
                     <SubText>mg/DL</SubText>
                 </WrapView>
 

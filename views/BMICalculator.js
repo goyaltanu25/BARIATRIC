@@ -9,7 +9,7 @@ import {
   TextInput
 } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
-import { Ionicons } from '@expo/vector-icons';
+import { Foundation, } from '@expo/vector-icons';
 
 
 
@@ -20,7 +20,18 @@ import Page from '../components/Page';
 import styled from 'styled-components';
 
 const BMICalculator = props => {
-  const [password,onChangePassword]=useState();
+  const [femaleActive,setFemale]=useState(false);
+  const [maleActive,setMale]=useState(true);
+
+  const setActive=(user)=>{
+    if(user === "male"){
+      setMale(true)
+      setFemale(false)
+    }else if(user=== "female"){
+      setFemale(true)
+      setMale(false)
+    }
+  }
   const FlexItem=styled.View`
   display:flex;
   flex-direction:row;
@@ -32,7 +43,7 @@ const BMICalculator = props => {
   flex-direction:row;
   justify-content:center;
   align-items:baseline;
-  margin:25%
+  margin:15%
   `
  
   const ValueText=styled.TextInput`
@@ -57,18 +68,18 @@ const BMICalculator = props => {
       <CardItem
         color='#FDFDFD'
         height='150px'
-        onSelect={() => console.log('no action')}>
+        onSelect={()=>setActive("male")}>
        <ImageItem>
-       <Image source={require('../assets/male.png')}/>
+       <Foundation name="male" color={maleActive ? "#3295DD":"#C4C4C4"} size={85}/>
        </ImageItem>  
       
       </CardItem>
       <CardItem
         color='#FDFDFD'
         height='150px'
-        onSelect={() => console.log('no action')}>
+        onSelect={()=>setActive("female")}>
        <ImageItem>
-       <Image source={require('../assets/female.png')}/>
+       <Foundation name="female" color={femaleActive ? "#3295DD":"#C4C4C4"} size={85}/>
        </ImageItem>  
       
       </CardItem>
@@ -107,13 +118,13 @@ const BMICalculator = props => {
         <FlexItem>
           <Image source={require('../assets/weight.png')}/>
           <View>
-          <DescText style={{marginHorizontal:20,textAlign:'center'}}>Weight in (cm)</DescText>
+          <DescText style={{marginHorizontal:20,textAlign:'center'}}>Weight in (kgs)</DescText>
           <ValueText style={{marginHorizontal:20,textAlign:'center'}}>80</ValueText>
           </View>
         </FlexItem>
 
       </CardItem>
-      <TouchableOpacity onPress={() => console.log('Submit')}>
+      <TouchableOpacity onPress={() => props.navigation.navigate('BMICalculatorScreen')}>
           <View style={styles.customBtn}>
               <Text style={{ color: 'black' }}>Submit</Text>
           </View>
@@ -124,7 +135,7 @@ const BMICalculator = props => {
 
 BMICalculator.navigationOptions = ({ navigation }) => {
   return {
-    headerTitle: 'My Profile',
+    headerTitle: 'BMI Calculator',
     headerLeft: () =>
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item

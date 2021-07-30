@@ -6,13 +6,12 @@ import {LinearGradient} from 'expo-linear-gradient';
 
 const arrMenu = [
     { 'id': 0, name: 'BMI Calculator', 'icon': require("../assets/bmiIcon.png"), 'navScreen': 'BMICalculator' },
-    { 'id': 1, name: 'All Trackers', 'icon': require("../assets/alltrackerIcon.png"), 'navScreen': 'NutritionTrackerScreen' },
-    { 'id': 2, name: 'Nutrition Tracker', 'icon':require("../assets/salad.png"), 'navScreen': 'NutritionTrackerScreen' },
+    { 'id': 1, name: 'All Trackers', 'icon': require("../assets/alltrackerIcon.png"), 'navScreen': 'AllTrackers' },
+    { 'id': 2, name: 'Nutrition Tracker', 'icon':require("../assets/salad2.png"), 'navScreen': 'NutritionTrackerScreen' },
     { 'id': 3, name: 'Sleep Tracker', 'icon': require("../assets/moonsleepIcon.png"), 'navScreen': 'SleepTracker' },
     { 'id': 4, name: 'Sugar Tracker', 'icon': require("../assets/sugarcubesIcon.png"), 'navScreen': 'SugarTracker' },
-    { 'id': 5, name: 'History', 'icon': require("../assets/historyIcon.png"), 'navScreen': 'History' },
     { 'id': 6, name: 'Reminder', 'icon':require("../assets/reminderIcon.png"), 'navScreen': 'ReminderScreen' },
-    { 'id': 7, name: 'Community Support', 'icon': require("../assets/settingsIcon.png"), 'navScreen': 'CommunitySupport' },
+    { 'id': 7, name: 'FAQ', 'icon': require("../assets/settingsIcon.png"), 'navScreen': 'CommunitySupport' },
     { 'id': 8, name: 'Settings', 'icon': require("../assets/settingsIcon.png"), 'navScreen': 'Settings' },
 ]
 

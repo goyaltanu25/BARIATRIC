@@ -55,7 +55,7 @@ color: ${Colors.textColor};
             </CustomTabView>
             <CardItem
                 color='#DBF6E9'
-                height='240px'
+                height='190px'
             >
                 <RowView style={styles.borderBottom}>
                   <Text>Language</Text>
@@ -69,16 +69,10 @@ color: ${Colors.textColor};
                   <Text>Notification</Text>
                   <Ionicons name="toggle" size={30} color="grey"/>
                 </RowView>
-                <RowView style={styles.borderBottom}>
+                <RowView>
                 <Text>About</Text>
                   <Ionicons name="chevron-forward" size={20} color="grey"/>
                 </RowView>
-                <RowView>
-                <Text>FAQ</Text>
-                  <Ionicons name="chevron-forward" size={20} color="grey"/>
-                </RowView>
-                
-
             </CardItem>
             <CustomTabView>
                 <SubText1>Back Up</SubText1>
