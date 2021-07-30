@@ -1,5 +1,5 @@
 import { AntDesign, Foundation, Ionicons } from '@expo/vector-icons';
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styled from 'styled-components';
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Table, TableWrapper, Row, Rows, Col } from 'react-native-table-component';
@@ -10,7 +10,7 @@ import Colors from '../constants/Colors';
 import Page from '../components/Page';
 import CardItem from '../components/CardItem';
 import IconImage from '../components/IconImage';
-import { useEffect } from 'react/cjs/react.production.min';
+
 
 
 const CONTENT = {
@@ -75,10 +75,16 @@ const NutritionTrackerScreen = props => {
   font-weight: bold;
   font-size: 16px;
   `
-  // useEffect(()=>{
-  //   const uri= props.navigation.state.params ? props.navigation.state.params.image : '';
-  //   setImage(uri)
-  // },[uri])
+  useEffect(()=>{
+    const url= props.navigation.state.params ? props.navigation.state.params.image : '';
+    setImage(url)
+  },[uri])
+
+  useEffect(()=>()=>{
+    return () => {
+     setImage('');
+    };
+  },[])
   
 
   return (

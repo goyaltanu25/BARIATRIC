@@ -18,10 +18,15 @@ import HeaderButton from '../components/HeaderButton';
 import CardItem from '../components/CardItem';
 import Page from '../components/Page';
 import styled from 'styled-components';
+import { useEffect } from 'react';
 
 const BMICalculator = props => {
   const [femaleActive,setFemale]=useState(false);
   const [maleActive,setMale]=useState(true);
+  const [BMIValue,setBMI]=useState(0);
+  const [age,setAge]=useState(25);
+  const [height,setHeight]=useState(195);
+  const [weight,setWeight]=useState(80);
 
   const setActive=(user)=>{
     if(user === "male"){
@@ -32,6 +37,22 @@ const BMICalculator = props => {
       setMale(false)
     }
   }
+
+  const updateBMI=()=>{
+    const heightTemp = height/10000;
+    const tempbmi = weight/Math.round(heightTemp);
+    setBMI(Math.floor(tempbmi));
+    props.navigation.navigate('BMICalculatorScreen',{BMI:BMIValue})
+  }
+
+  useEffect(()=>()=>{
+    return () => {
+     setAge(0);
+     setHeight(0);
+     setWeight(0);
+     setBMI(0);
+    };
+  },[])
   const FlexItem=styled.View`
   display:flex;
   flex-direction:row;
@@ -49,7 +70,7 @@ const BMICalculator = props => {
   const ValueText=styled.TextInput`
   font-style: normal;
   font-weight: 600;
-  font-size: 30px;
+  font-size: 20px;
   line-height: 36px;
   text-align: center;
   color: #000000;
@@ -93,7 +114,13 @@ const BMICalculator = props => {
           <Image source={require('../assets/calendar.png')}/>
           <View>
           <DescText style={{marginHorizontal:20,textAlign:'center'}}>Age</DescText>
-          <ValueText style={{marginHorizontal:20,textAlign:'center'}}>25</ValueText>
+          <ValueText 
+          style={{marginHorizontal:20,textAlign:'center'}}
+          onChangeText={setAge}
+          value={age.toString()}
+          placeholder="Enter Age"
+          keyboardType="numeric"
+          />
           </View>
         </FlexItem>
 
@@ -106,7 +133,13 @@ const BMICalculator = props => {
           <Image source={require('../assets/human-male-height.png')}/>
           <View>
           <DescText style={{marginHorizontal:20,textAlign:'center'}}>Height in (cm)</DescText>
-          <ValueText style={{marginHorizontal:20,textAlign:'center'}}>195</ValueText>
+          <ValueText 
+          style={{marginHorizontal:20,textAlign:'center'}}
+          onChangeText={setHeight}
+          value={height.toString()}
+          placeholder="Enter Height"
+          keyboardType="numeric"
+          />
           </View>
         </FlexItem>
 
@@ -119,12 +152,18 @@ const BMICalculator = props => {
           <Image source={require('../assets/weight.png')}/>
           <View>
           <DescText style={{marginHorizontal:20,textAlign:'center'}}>Weight in (kgs)</DescText>
-          <ValueText style={{marginHorizontal:20,textAlign:'center'}}>80</ValueText>
+          <ValueText 
+          style={{marginHorizontal:20,textAlign:'center'}}
+          onChangeText={setWeight}
+          value={weight.toString()}
+          placeholder="Enter Weight"
+          keyboardType="numeric"
+          />
           </View>
         </FlexItem>
 
       </CardItem>
-      <TouchableOpacity onPress={() => props.navigation.navigate('BMICalculatorScreen')}>
+      <TouchableOpacity onPress={() => updateBMI()}>
           <View style={styles.customBtn}>
               <Text style={{ color: 'black' }}>Submit</Text>
           </View>
@@ -132,25 +171,6 @@ const BMICalculator = props => {
     </Page>
   );
 };
-
-BMICalculator.navigationOptions = ({ navigation }) => {
-  return {
-    headerTitle: 'BMI Calculator',
-    headerLeft: () =>
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            navigation.toggleDrawer();
-          }}/>
-      </HeaderButtons>,
-    headerRight:()=> null  
-   
-  };
-}
-
-
 
 const styles = StyleSheet.create({
   headerIcons: {

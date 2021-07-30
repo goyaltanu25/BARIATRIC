@@ -6,5 +6,5 @@ export default function Page(props) {
  display:flex;
  margin:5px
  `
- return (<PageView>{props.children}</PageView>)
+ return (<PageView keyboardShouldPersistTaps='always' keyboardDismissMode='on-drag'>{props.children}</PageView>)
 }

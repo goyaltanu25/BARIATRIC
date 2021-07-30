@@ -22,6 +22,7 @@ import OTPScreen from '../views/OTP'
 import CalorieTracker from '../views/CalorieTracker'
 import MenuScreen from '../views/MenuScreen';
 import BMICalculator from '../views/BMICalculator'
+import BMICalculatorScreen from '../views/BMICalculatorScreen'
 import ReminderScreen from '../views/ReminderScreen'
 import SleepTracker from '../views/SleepTracker'
 import SugarTracker from '../views/SugarTracker'
@@ -154,18 +155,42 @@ const DashboardTabNavigator = createBottomTabNavigator({
   tabBarOptions: {
     activeTintColor: Colors.accentColor
   },
-  navigationOptions:({navigation})=>{
+  navigationOptions: ({ navigation }) => {
     const {routeName}=navigation.state.routes[navigation.state.index]
-    return {headerTitle:routeName}
+    return {
+      headerTitle: routeName,
+      headerLeft: () =>
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title="Menu"
+            iconName="ios-menu"
+            onPress={() => {
+              navigation.toggleDrawer();
+            }}
+          />
+        </HeaderButtons>,
+      headerRight: () =>
+        <View style={styles.headerIcons}>
+          {/* Reminder Screen */}
+          <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+            onPress={()=>navigation.navigate('ReminderScreen')}>
+            <Image source={require('../assets/handIcon.png')} />
+          </TouchableOpacity >
+          {/* Notification Screen */}
+          <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
+          onPress={()=>navigation.navigate('NotificationsScreen')}>
+            <Image source={require('../assets/bellIcon.png')} />
+          </TouchableOpacity >
+  
+        </View >,
+  
+    };
   }
 })
 
 const DashboardStackNavigator =createStackNavigator({
   DashboardTabNavigator:{
     screen: DashboardTabNavigator,
-    navigationOptions: {
-      title: 'Home', 
-    }
   },
   BMICalculator: {
     screen: BMICalculator,
@@ -175,7 +200,7 @@ const DashboardStackNavigator =createStackNavigator({
     }
   },
   BMICalculatorScreen:{
-    screen: BMICalculator,
+    screen: BMICalculatorScreen,
     navigationOptions: {
       title: 'BMI Calculator',
       
@@ -251,45 +276,43 @@ const DashboardStackNavigator =createStackNavigator({
     navigationOptions:{
        title:'Alarm',
     } 
- },
+  },
   CalorieTracker:{
     screen:CalorieTracker,
     navigationOptions:{
        title:'Calorie Tracker',
     } 
- },
- ChartScreen:{
+  },
+  ChartScreen:{
    screen:MyChartScreen,
    navigationOptions:{
     title:'My Chart',
  } 
- },
- InfantHealthCare:{
+  },
+  InfantHealthCare:{
    screen:InfantHealthCareScreen,
    navigationOptions:{
     title:'Infant HealthCare',
  } 
- },
- HealthDiagnose:{
+  },
+  HealthDiagnose:{
   screen:HealthDiagnose,
   navigationOptions:{
    title:'Health Diagnose',
 } 
-},
- MealPlanner:{
+  },
+  MealPlanner:{
    screen:MealPlanner,
    navigationOptions:{
     title:'Meal Planner',
  } 
-},
-User:{
+  },
+  User:{
   screen:ProfilePage, 
   navigationOptions:{
     title:'My Profile'
   }
- } 
-
-
+  } 
 },
 {
   defaultNavigationOptions: ({navigation})=>{
@@ -304,20 +327,7 @@ User:{
           }}
         />
       </HeaderButtons>,
-      headerRight: () =>
-      <View style={styles.headerIcons}>
-          {/* Reminder Screen */}
-          <TouchableOpacity style={styles.Icon} activeOpacity={0.7}
-              onPress={() => navigation.navigate('ReminderScreen')}>
-              <Image source={require('../assets/handIcon.png')} />
-          </TouchableOpacity >
-          {/* Notification Screen */}
-          <TouchableOpacity style={styles.Icon} activeOpacity={0.7}
-              onPress={() => navigation.navigate('NotificationsScreen')}>
-              <Image source={require('../assets/bellIcon.png')} />
-          </TouchableOpacity >
-
-      </View >,
+      headerRight: () =>null,
 
     }
   }
@@ -327,15 +337,6 @@ User:{
 const DashboardDrawer = createDrawerNavigator({
   DashboardScreen:{
     screen: DashboardStackNavigator,
-    navigationOptions: {
-      drawerLabel: 'Dashboard',
-      drawerIcon: (
-        <Ionicons
-          name="home"
-          size={24}
-        />
-      ),
-    }
   },
 },
 {

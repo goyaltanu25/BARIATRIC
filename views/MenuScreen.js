@@ -261,40 +261,6 @@ const MenuScreen = props => {
   );
 };
 
-// Header Navigation
-MenuScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerTitle: 'Home',
-    headerLeft: () =>
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            navigation.toggleDrawer();
-          }}
-        />
-      </HeaderButtons>,
-    headerRight: () =>
-      <View style={styles.headerIcons}>
-        {/* Reminder Screen */}
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
-          onPress={()=>navigation.navigate('ReminderScreen')}>
-          <Image source={require('../assets/handIcon.png')} />
-        </TouchableOpacity >
-        {/* Notification Screen */}
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} 
-        onPress={()=>navigation.navigate('NotificationsScreen')}>
-          <Image source={require('../assets/bellIcon.png')} />
-        </TouchableOpacity >
-
-      </View >,
-
-  };
-}
-
-
-
 const styles = StyleSheet.create({
   headerIcons: {
     flex: 1,
@@ -313,5 +279,7 @@ const styles = StyleSheet.create({
     margin: 20
   },
 });
+
+
 
 export default MenuScreen;
