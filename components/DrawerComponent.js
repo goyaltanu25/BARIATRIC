@@ -34,9 +34,9 @@ class DrawerMenu extends React.Component {
                 <StatusBar backgroundColor="#FAFAFA" barStyle="light-content" />
                  <LinearGradient colors={['#FFFFFF','#A7E9E2','#8ED6CF','#8ED6CF']} style={styles.headerContainer}>
                     <View style={{ flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center'}}>
-                        <View>
-                            <Image source={require('../assets/user.png')}  onPress={()=>this.navigateToScreen('User')}/>
-                        </View>
+                        <TouchableOpacity onPress={() => this.navigateToScreen('User')}>
+                            <Image source={require('../assets/user.png')}/>
+                        </TouchableOpacity>
                     </View>
                     <Text style={{ color: 'black', fontSize: 20, fontWeight: '500', paddingLeft: 10 }}>Jane Doe</Text>
                     <Text style={{ color: 'black', fontSize: 18, fontWeight: '500', paddingLeft: 10 }}>+91 8378764190</Text>

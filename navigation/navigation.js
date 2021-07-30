@@ -275,7 +275,7 @@ const DashboardStackNavigator =createStackNavigator({
  } 
 },
 User:{
-  screen:Register, 
+  screen:ProfilePage, 
   navigationOptions:{
     title:'My Profile'
   }
