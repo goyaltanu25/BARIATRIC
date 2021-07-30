@@ -82,7 +82,7 @@ const NutritionTrackerScreen = props => {
 
   useEffect(()=>()=>{
     return () => {
-     setImage('');
+     setImage();
     };
   },[])
   
