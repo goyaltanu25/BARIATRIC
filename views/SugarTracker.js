@@ -147,26 +147,7 @@ const WrapView = styled.View`
     );
 }
 
-// // Header Navigation
-// SugarTracker.navigationOptions = ({ navigation }) => {
-//     return {
-//         headerTitle: 'Sugar Tracker',
-//         headerLeft: () =>
-//             <HeaderButtons HeaderButtonComponent={HeaderButton}>
-//                 <Item
-//                     iconName="chevron-back-outline"
-//                     onPress={() => {
-//                         navigation.goBack();
-//                     }}
-//                 />
-//             </HeaderButtons>,
-//         headerRight: () =>
-//             <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('AddReminder')}>
-//                 <Image source={require('../assets/success 2.png')} />
-//             </TouchableOpacity >
 
-//     };
-// }
 
 const styles = StyleSheet.create({
     customBtn: {

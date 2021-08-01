@@ -7,84 +7,72 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { Ionicons } from '@expo/vector-icons';
+import styled from 'styled-components';
 
-
-
-import HeaderButton from '../components/HeaderButton';
-import { CATEGORIES } from '../data/dummy-data';
+import Colors from '../constants/Colors'
 import CardItem from '../components/CardItem';
+import Page from '../components/Page';
 
-const MenuScreen = props => {
-  const renderGridItem = itemData => {
-    return (
-      <CardItem
-        title={itemData.item.title}
-        color={itemData.item.color}
-        onSelect={() => {
-          props.navigation.navigate({
-            routeName: 'CalorieTracker',
-            params: {
-              categoryId: itemData.item.id
-            }
-          });
-        }}
-      />
-    );
-  };
-
+const MealPlannerScreen2 = props => {
+  const CustomTabView = styled.View`
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  flex-direction:row;
+  margin:20px;
+  `
+  const SubText = styled.Text`
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  color: ${Colors.textColor};
+  `
+  const RedText=styled.Text`
+  height: 19px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  color: #FF103B;
+  `
   return (
-    <FlatList
-      keyExtractor={(item, index) => item.id}
-      data={CATEGORIES}
-      renderItem={renderGridItem}
-      numColumns={1}
-    />
+    <Page>
+    <CustomTabView>
+     <RedText>Today's Energy</RedText>
+    </CustomTabView>
+    <CardItem
+    color='#FAFAFA'
+    height='277px'>
+
+    </CardItem>
+    
+    <CustomTabView>
+    <SubText>Activity</SubText>
+    </CustomTabView>
+    <CardItem
+    color='#FAFAFA'
+    height='105px'>
+
+    </CardItem>
+    <CardItem
+    color='#FAFAFA'
+    height='105px'>
+
+    </CardItem>
+    <CardItem
+    color='#FAFAFA'
+    height='105px'>
+
+    </CardItem>
+  </Page>
   );
 };
 
-MenuScreen.navigationOptions = ({ navigation }) => {
-  return {
-    headerTitle: 'Home',
-    headerLeft: () =>
-      <HeaderButtons HeaderButtonComponent={HeaderButton}>
-        <Item
-          title="Menu"
-          iconName="ios-menu"
-          onPress={() => {
-            navigation.toggleDrawer();
-          }}
-        />
-      </HeaderButtons>,
-    headerRight: () =>
-      <View style={styles.headerIcons}>
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} onPress={() => { console.log('abc') }}>
-          <Image source={require('../assets/handIcon.png')} />
-        </TouchableOpacity >
-        <TouchableOpacity style={styles.Icon} activeOpacity={0.7} onPress={() => { console.log('abc') }}>
-          <Image source={require('../assets/bellIcon.png')} />
-        </TouchableOpacity >
-
-      </View >,
-
-  };
-}
 
 
 
-const styles = StyleSheet.create({
-  headerIcons:{
-    flex:1, 
-    flexDirection: 'row',
-    justifyContent:'space-around',
-    alignItems:'baseline',
-    margin:20
-   },
-  Icon:{
-    alignItems:'baseline',
-    marginHorizontal:20
-  }
-});
 
-export default MenuScreen;
+export default MealPlannerScreen2;

@@ -1,11 +1,10 @@
 import { Ionicons } from '@expo/vector-icons';
 import React from 'react';
 import { View, useWindowDimensions, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import styled from 'styled-components';
 
-import HeaderButton from '../components/HeaderButton';
+
 import Colors from '../constants/Colors';
 import Page from '../components/Page';
 import CardItem from '../components/CardItem';

@@ -16,7 +16,7 @@ const data = {
     labels: ["Week1", "Week2", "Week3", "Week4"],
     datasets: [
         {
-            data: [20, 40, 5, 60]
+            data: [20, 40, 65, 60]
         }
     ]
 };
@@ -27,21 +27,8 @@ const chartConfig = {
     backgroundGradientTo: "#297C75",
     backgroundGradientToOpacity: 0,
     color: (opacity = 1) => `rgba(41, 124, 117,  ${opacity})`,
-    barPercentage: 0.5,
-    style: {
-        borderRadius: 12,
-        height: 237,
-        background: 'rgba(41, 124, 117, 1)',
-    },
-    propsForDots: {
-        r: "0",
-        strokeWidth: "",
-        stroke: ""
-    },
-    propsForBackgroundLines: {
-        strokeDasharray: "",
-        strokeWidth: 0
-    },
+    fillShadowGradient:'#297C75',
+    fillShadowGradientOpacity:1,
 };
 export default function SleepTracker({ navigation }) {
 
@@ -181,8 +168,8 @@ color: ${Colors.textColor};
             >
                 <BarChart
                     data={data}
-                    width={screenWidth}
-                    height={220}
+                    width={screenWidth-50}
+                    height={250}
                     chartConfig={chartConfig}
 
                 />
@@ -191,32 +178,3 @@ color: ${Colors.textColor};
     );
 }
 
-// // Header Navigation
-// SleepTracker.navigationOptions = ({ navigation }) => {
-//     return {
-//         headerTitle: 'Sleep Tracker',
-//         headerLeft: () =>
-//             <HeaderButtons HeaderButtonComponent={HeaderButton}>
-//                 <Item
-//                     iconName="chevron-back-outline"
-//                     onPress={() => {
-//                         navigation.goBack();
-//                     }}
-//                 />
-//             </HeaderButtons>,
-//         headerRight: () =>
-//             <TouchableOpacity activeOpacity={0.7} onPress={() => navigation.navigate('AddReminder')}>
-//                 <Image source={require('../assets/success 2.png')} />
-//             </TouchableOpacity >
-
-//     };
-// }
-
-const styles = StyleSheet.create({
-    activeTabTextColor: {
-        color: 'black'
-    },
-    tabTextColor: {
-        color: 'black'
-    }
-})
