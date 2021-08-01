@@ -19,12 +19,12 @@ const data = {
     ]
 };
 const chartConfig = {
-    backgroundColor: 'black',
-    backgroundGradientFrom: "black",
+    backgroundColor: '#97999B',
+    backgroundGradientFrom: "#97999B",
     backgroundGradientFromOpacity: 1,
-    backgroundGradientTo: "black",
-    backgroundGradientToOpacity:1,
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    backgroundGradientTo: "#97999B",
+    backgroundGradientToOpacity: 0,
+    color: (opacity = 1) => `rgba(250, 250, 250,  ${opacity})`,
     fillShadowGradient:'#FAFAFA',
     fillShadowGradientOpacity:1,
 };
@@ -120,7 +120,7 @@ color: ${Colors.textColor};
                       routeName: 'Alarm',
                       })}}
                     >
-                    <Text style={{ marginHorizontal: 10, marginVertical: 6, fontSize: 14, color: '#4FB6AD' }}>
+                    <Text style={{ marginHorizontal: 20, marginVertical: 6, fontSize: 14, color: '#4FB6AD' }}>
                         Change
                     </Text>
                     </TouchableOpacity>
@@ -164,7 +164,7 @@ color: ${Colors.textColor};
                 <SubText1>Average Sleep - 45 hrs a Week</SubText1>
             </CustomTabView>
             <CardItem
-                color='black'
+                color='#97999B'
                 height='280px'
             >
                 <BarChart

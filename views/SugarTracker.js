@@ -21,7 +21,12 @@ const data = {
     ]
 };
 const chartConfig = {
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    backgroundColor: '#97999B',
+    backgroundGradientFrom: "#97999B",
+    backgroundGradientFromOpacity: 1,
+    backgroundGradientTo: "#97999B",
+    backgroundGradientToOpacity: 0,
+    color: (opacity = 1) => `rgba(250, 250, 250,  ${opacity})`,
     barPercentage: 0.5,
     fillShadowGradient:'#FAFAFA',
     fillShadowGradientOpacity:1,
@@ -99,7 +104,7 @@ const WrapView = styled.View`
                 <BoldText>20 April 2021, Tuesday</BoldText>
             </DateView>
             <CardItem
-                color='black'
+                color='#97999B'
                 height='280px'
             >
                 <BarChart

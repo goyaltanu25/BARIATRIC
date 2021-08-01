@@ -120,7 +120,12 @@ const MenuScreen = props => {
   };
 
   const chartConfig = {
-    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+    backgroundColor: '#97999B',
+    backgroundGradientFrom: "#97999B",
+    backgroundGradientFromOpacity: 1,
+    backgroundGradientTo: "#97999B",
+    backgroundGradientToOpacity: 0,
+    color: (opacity = 1) => `rgba(250, 250, 250,  ${opacity})`,
     barPercentage: 0.5,
     style: {
       borderRadius: 12,
@@ -210,7 +215,7 @@ const MenuScreen = props => {
     
      {/* Chart View */}
      <CardItem
-        color='black'
+        color='#97999B'
         height='237'>
        <LineChart
         data={data}
