@@ -255,7 +255,7 @@ const MenuScreen = props => {
         height='60px'
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'NutritionTrackerScreen',
+            routeName: 'HealthPlanner',
           });
         }}>
           <Image source={require('../assets/planner.png')} style={{ position: 'absolute', height: 60, width: 52 }} />

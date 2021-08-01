@@ -42,6 +42,7 @@ import DrawerComponent from '../components/DrawerComponent'
 import ProfilePage from '../views/ProfilePage';
 import AllTrackers from '../views/AllTrackers';
 import PointsandRewardsScreen from '../views/Points&Rewards';
+import HealthPlanner from '../views/HealthPlanner';
 
 
 const defaultStackNavOptions = {
@@ -319,7 +320,13 @@ const DashboardStackNavigator =createStackNavigator({
     navigationOptions:{
       title:'Points & Rewards'
     }
-  } 
+  },
+  HealthPlanner:{
+    screen:HealthPlanner,
+    navigationOptions:{
+      title:'Health Planner'
+    }
+  }
 },
 {
   defaultNavigationOptions: ({navigation})=>{
