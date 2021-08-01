@@ -120,7 +120,7 @@ color: ${Colors.textColor};
                       routeName: 'Alarm',
                       })}}
                     >
-                    <Text style={{ marginHorizontal: 20, marginVertical: 6, fontSize: 14, color: '#4FB6AD' }}>
+                    <Text style={{ marginHorizontal: 10, marginVertical: 6, fontSize: 14, color: '#4FB6AD' }}>
                         Change
                     </Text>
                     </TouchableOpacity>

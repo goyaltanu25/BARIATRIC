@@ -109,7 +109,7 @@ const MenuScreen = props => {
 
   // Chart Configurations
   const data = {
-    labels: ["06:00", "12:00", "18:00", "24:00"],
+    labels: ["kCal", "12:00", "18:00", "24:00"],
     datasets: [
       {
         data: [20,10,8,15,25,60,80, 40,60,20,10,8,15,],

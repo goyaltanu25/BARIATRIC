@@ -48,32 +48,23 @@ export default function HealthPlanner({ navigation }) {
                 <CardView>
                     <CircleImage src={require('../assets/workout.png')} title="Workout"
                         onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'ChartScreen',
-                            })
+                            console.log('Workout')
                         }}
                     />
                     <CircleImage src={require('../assets/hobbies.png')}
                         title="Hobbies"
-                        onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'MealPlanner',
-                            })
-                        }}
+                        onSelect={() => console.log('Workout')}
+                        
                     />
                     <CircleImage src={require('../assets/lifestyle.png')}
                         title="Lifestyle"
-                        onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'HealthDiagnose',
-                            })
-                        }}
+                        onSelect={() => console.log('Lifestyle')}
                     />
                     <CircleImage src={require('../assets/guidelines.png')}
                         title="Guidelines"
                         onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'InfantHealthCare',
+                            navigation.navigate({
+                                routeName: 'CommunitySupport',
                             })
                         }}
                     />
@@ -82,24 +73,24 @@ export default function HealthPlanner({ navigation }) {
                     <CircleImage src={require('../assets/goodsleep.png')}
                         title="Good Sleep"
                         onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'InfantHealthCare',
+                            navigation.navigate({
+                                routeName: 'SleepTracker',
                             })
                         }}
                     />
                     <CircleImage src={require('../assets/foodbudget.png')}
                         title="Food Budget"
                         onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'InfantHealthCare',
+                            navigation.navigate({
+                                routeName: 'MealPlanner',
                             })
                         }}
                     />
                     <CircleImage src={require('../assets/communitysuport.png')}
                         title="Community Support"
                         onSelect={() => {
-                            props.navigation.navigate({
-                                routeName: 'InfantHealthCare',
+                            navigation.navigate({
+                                routeName: 'CommunitySupport',
                             })
                         }}
                     />

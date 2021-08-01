@@ -83,22 +83,13 @@ const InfantHealthCareScreen1 = props => {
       <CustomTabView>
         <SubText>Early Awareness</SubText>
       </CustomTabView>
-      <CardView style={{width:120}}>
+      <CardView style={{width:250}}>
         <CardItem
           color='#FAFAFA'
           height='105px'>
           <Image source={require('../assets/HFSCSDFinderIcon.png')} style={{ position: 'absolute' }} />
-
+         
         </CardItem>
-      </CardView>
-      <TextView style={{width:120,marginLeft:50}}>
-        <DescText>HFS/CSD Finder</DescText>
-      </TextView>
-      <CustomTabView>
-          <SubText>Points and Rewards</SubText>
-        </CustomTabView>
-      <CardView style={{width:120}}>
-      
         <CardItem
           color='#FAFAFA'
           height='105px'>
@@ -106,7 +97,8 @@ const InfantHealthCareScreen1 = props => {
 
         </CardItem>
       </CardView>
-      <TextView style={{width:130,marginLeft:50}}>
+      <TextView style={{width:120,marginLeft:50}}>
+        <DescText>HFS/CSD Finder</DescText>
         <DescText>Physical Activities</DescText>
       </TextView>
     </Page>
