@@ -20,11 +20,13 @@ const InfantHealthCareScreen1 = props => {
   align-items:baseline;
   justify-content:space-between;
   flex-direction:row;
-  margin:20px;
+  margin-vertical:20px;
+  margin-horizontal:20px;
   `
   const CardView = styled.View`
   flex-direction:row;
-  margin:20px;
+  justify-content:space-between;
+  margin-left:10%;
   `
   const TextView = styled.View`
   flex-direction:row;
@@ -58,21 +60,22 @@ const InfantHealthCareScreen1 = props => {
         <SubText>Tests for Infants/Toddlers </SubText>
       </CustomTabView>
 
-      <CardView>
+      <CardView style={{width:250}}>
         <CardItem
           color='#FAFAFA'
-          height='110px'>
+          height='105px'
+          >
           <Image source={require('../assets/WeightforLengthIcon.png')} style={{ position: 'absolute' }} />
         </CardItem>
 
         <CardItem
           color='#FAFAFA'
-          height='110px'>
+          height='105px'>
           <Image source={require('../assets/BMICalci.png')} style={{ position: 'absolute' }} />
 
         </CardItem>
       </CardView>
-      <TextView>
+      <TextView style={{width:140}}>
         <DescText>Skinfold Thickness Test</DescText>
         <DescText>CT/MRI Scans Ultrasound</DescText>
       </TextView>
@@ -80,30 +83,31 @@ const InfantHealthCareScreen1 = props => {
       <CustomTabView>
         <SubText>Early Awareness</SubText>
       </CustomTabView>
-      <CardView>
+      <CardView style={{width:120}}>
         <CardItem
           color='#FAFAFA'
-          height='110px'>
+          height='105px'>
           <Image source={require('../assets/HFSCSDFinderIcon.png')} style={{ position: 'absolute' }} />
 
         </CardItem>
       </CardView>
-      <TextView>
-        <DescText>HFS/CSD finder</DescText>
+      <TextView style={{width:120,marginLeft:50}}>
+        <DescText>HFS/CSD Finder</DescText>
       </TextView>
-      <CardView>
-        <CustomTabView>
+      <CustomTabView>
           <SubText>Points and Rewards</SubText>
         </CustomTabView>
+      <CardView style={{width:120}}>
+      
         <CardItem
           color='#FAFAFA'
-          height='110px'>
+          height='105px'>
           <Image source={require('../assets/PhysicalActivity.png')} style={{ position: 'absolute' }} />
 
         </CardItem>
       </CardView>
-      <TextView>
-        <DescText>Physical activities</DescText>
+      <TextView style={{width:130,marginLeft:50}}>
+        <DescText>Physical Activities</DescText>
       </TextView>
     </Page>
   );

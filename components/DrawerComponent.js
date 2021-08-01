@@ -10,7 +10,7 @@ const arrMenu = [
     { 'id': 2, name: 'Nutrition Tracker', 'icon':require("../assets/salad2.png"), 'navScreen': 'NutritionTrackerScreen' },
     { 'id': 3, name: 'Sleep Tracker', 'icon': require("../assets/moonsleepIcon.png"), 'navScreen': 'SleepTracker' },
     { 'id': 4, name: 'Sugar Tracker', 'icon': require("../assets/sugarcubesIcon.png"), 'navScreen': 'SugarTracker' },
-    { 'id': 6, name: 'Reminder', 'icon':require("../assets/reminderIcon.png"), 'navScreen': 'ReminderScreen' },
+    { 'id': 6, name: 'Medications', 'icon':require("../assets/reminderIcon.png"), 'navScreen': 'ReminderScreen' },
     { 'id': 7, name: 'FAQ', 'icon': require("../assets/settingsIcon.png"), 'navScreen': 'CommunitySupport' },
     { 'id': 8, name: 'Settings', 'icon': require("../assets/settingsIcon.png"), 'navScreen': 'Settings' },
 ]

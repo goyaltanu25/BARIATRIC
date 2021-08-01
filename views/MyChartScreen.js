@@ -32,9 +32,9 @@ const MyChartScreen = props => {
     labels: ["Swim", "Bike", "Run"], // optional
     data: [0.7, 0.6, 0.8],
     colors: [
-      "rgba(250,31,31,1)",
-      "rgba(161,239,174,1)",
-      "rgba(161,234,239,1)",
+      "rgba(255,35,91,1)",
+      "rgba(79,182,173,1)",
+      "rgba(114,166,221,1)",
     ]
   };
 

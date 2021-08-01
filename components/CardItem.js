@@ -14,6 +14,7 @@ const CardItem = props => {
  
   const CardView = styled.View`
    height:${props.height};
+   width:${props.width ? props.width:'auto'}
  `;
 
   let TouchableCmp = TouchableOpacity;

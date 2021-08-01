@@ -21,22 +21,15 @@ const data = {
     ]
 };
 const chartConfig = {
-    backgroundColor: '#297C75',
-    backgroundGradientFrom: "#297C75",
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#297C75",
-    backgroundGradientToOpacity: 0,
+    backgroundColor: 'black',
+    backgroundGradientFrom: "black",
+    backgroundGradientFromOpacity: 1,
+    backgroundGradientTo: "black",
+    backgroundGradientToOpacity:1,
     color: (opacity = 1) => `rgba(41, 124, 117,  ${opacity})`,
     barPercentage: 0.5,
-    style: {
-        borderRadius: 12,
-        height: 237,
-        background: 'rgba(41, 124, 117, 1)',
-    },
-    propsForBackgroundLines: {
-        strokeDasharray: "",
-        strokeWidth: 0
-    },
+    fillShadowGradient:'#FAFAFA',
+    fillShadowGradientOpacity:1,
 };
 export default function SugarTracker({ navigation }) {
 
@@ -103,9 +96,7 @@ const WrapView = styled.View`
   justify-content:space-between;
   margin:5%
   `
- const layout = useWindowDimensions();
-
-    const [index, setIndex] = React.useState(0);
+ 
 
     return (
         <Page>
@@ -113,13 +104,13 @@ const WrapView = styled.View`
                 <BoldText>20 April 2021, Tuesday</BoldText>
             </DateView>
             <CardItem
-                color='#FAFAFA'
+                color='black'
                 height='280px'
             >
                 <BarChart
                     data={data}
-                    width={screenWidth}
-                    height={220}
+                    width={screenWidth-60}
+                    height={280}
                     chartConfig={chartConfig}
                     contentInset={{ top: 30, bottom: 30 }}
                 />

@@ -243,7 +243,7 @@ const DashboardStackNavigator =createStackNavigator({
   ReminderScreen:{
     screen: ReminderScreen,
     navigationOptions: {
-      title: 'Reminder'
+      title: 'Medications'
     }
   },
   AddReminder:{

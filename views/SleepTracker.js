@@ -1,11 +1,9 @@
 import React from 'react';
-import { View, useWindowDimensions, Dimensions, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
-import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import { View, Dimensions, Image, TouchableOpacity, StyleSheet, Text } from 'react-native';
 import styled from 'styled-components';
 import { BarChart } from 'react-native-chart-kit';
 
 
-import HeaderButton from '../components/HeaderButton';
 import Colors from '../constants/Colors';
 import Page from '../components/Page';
 import CardItem from '../components/CardItem';
@@ -21,13 +19,13 @@ const data = {
     ]
 };
 const chartConfig = {
-    backgroundColor: '#297C75',
-    backgroundGradientFrom: "#297C75",
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#297C75",
-    backgroundGradientToOpacity: 0,
+    backgroundColor: 'black',
+    backgroundGradientFrom: "black",
+    backgroundGradientFromOpacity: 1,
+    backgroundGradientTo: "black",
+    backgroundGradientToOpacity:1,
     color: (opacity = 1) => `rgba(41, 124, 117,  ${opacity})`,
-    fillShadowGradient:'#297C75',
+    fillShadowGradient:'#FAFAFA',
     fillShadowGradientOpacity:1,
 };
 export default function SleepTracker({ navigation }) {
@@ -102,10 +100,6 @@ color: ${Colors.textColor};
   margin-horizontal:20%;
   
   `
-    const layout = useWindowDimensions();
-
-    const [index, setIndex] = React.useState(0);
-
     return (
         <Page>
             <DateView>
@@ -121,9 +115,16 @@ color: ${Colors.textColor};
                     backgroundColor: '#CFEFE9',
                     borderRadius: 12,
                 }}>
+                    <TouchableOpacity onPress={() => {
+                    navigation.navigate({
+                      routeName: 'Alarm',
+                      })}}
+                    >
                     <Text style={{ marginHorizontal: 20, marginVertical: 6, fontSize: 14, color: '#4FB6AD' }}>
                         Change
                     </Text>
+                    </TouchableOpacity>
+                   
                 </View>
             </CustomTabView>
             <CardItem
@@ -163,7 +164,7 @@ color: ${Colors.textColor};
                 <SubText1>Average Sleep - 45 hrs a Week</SubText1>
             </CustomTabView>
             <CardItem
-                color='#DBF6E9'
+                color='black'
                 height='280px'
             >
                 <BarChart
