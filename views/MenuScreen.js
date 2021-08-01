@@ -5,7 +5,8 @@ import {
   // TouchableOpacity,
   Image,
   Dimensions,
-  StatusBar
+  StatusBar,
+  TouchableOpacity
 } from 'react-native';
 // import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -203,10 +204,15 @@ const MenuScreen = props => {
      <ChartHeaderView>
        <RedText>Today's Energy</RedText>
        <DetailsView>
+         <TouchableOpacity onPress={()=>props.navigation.navigate({
+           routeName:'ChartScreen'
+         })}>
          <DetailsText>
            Details 
            <MaterialCommunityIcons name="greater-than" size={10} color="#4FB6AD"/>
          </DetailsText>
+         </TouchableOpacity>
+        
          
       </DetailsView>
      </ChartHeaderView>

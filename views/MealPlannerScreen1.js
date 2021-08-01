@@ -110,12 +110,34 @@ const MealPlannerScreen1 = props => {
         
         <Description>Well defined meal plan with a set of grocery list</Description>
     </CardItem>
+    <TouchableOpacity onPress={() => console.log('Logout')}>
+          <View style={styles.customBtn}>
+              <Text style={{ color: 'black' }}>Save</Text>
+          </View>
+      </TouchableOpacity>
   </Page>
   );
 };
 
 
-
+const styles = StyleSheet.create({
+  customBtn: {
+    height: 40,
+    width:327,
+    padding: 8,
+    borderRadius: 8,
+    backgroundColor: '#4FB6AD',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 70,
+    textTransform: 'capitalize',
+    shadowColor: '#000',
+    shadowOffset: { width: 0.5, height: 0.5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 2,
+},
+})
 
 
 export default MealPlannerScreen1;

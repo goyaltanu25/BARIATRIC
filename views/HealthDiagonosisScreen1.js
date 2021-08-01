@@ -28,6 +28,7 @@ const HealthDiagnoseScreen1 = props => {
   `
   const TextView=styled.View`
   flex-direction:row;
+  justify-content:space-between;
   margin-horizontal:20px;
   `
 
