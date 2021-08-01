@@ -237,7 +237,7 @@ const MenuScreen = props => {
         height='60px'
         onSelect={() => {
           props.navigation.navigate({
-            routeName: 'NutritionTrackerScreen',
+            routeName: 'PointsScreen',
           });
         }}>
         <Image source={require('../assets/points.png')} style={{ position: 'absolute', height: 60, width: 52 }} />

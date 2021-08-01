@@ -41,6 +41,7 @@ import HealthDiagnose from '../views/HealthDiagonosisScreen1'
 import DrawerComponent from '../components/DrawerComponent'
 import ProfilePage from '../views/ProfilePage';
 import AllTrackers from '../views/AllTrackers';
+import PointsandRewardsScreen from '../views/Points&Rewards';
 
 
 const defaultStackNavOptions = {
@@ -312,6 +313,12 @@ const DashboardStackNavigator =createStackNavigator({
   navigationOptions:{
     title:'My Profile'
   }
+  },
+  PointsScreen:{
+    screen:PointsandRewardsScreen,
+    navigationOptions:{
+      title:'Points & Rewards'
+    }
   } 
 },
 {
