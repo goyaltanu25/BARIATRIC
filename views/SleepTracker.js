@@ -24,7 +24,7 @@ const chartConfig = {
     backgroundGradientFromOpacity: 1,
     backgroundGradientTo: "black",
     backgroundGradientToOpacity:1,
-    color: (opacity = 1) => `rgba(41, 124, 117,  ${opacity})`,
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     fillShadowGradient:'#FAFAFA',
     fillShadowGradientOpacity:1,
 };

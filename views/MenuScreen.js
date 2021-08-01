@@ -113,19 +113,14 @@ const MenuScreen = props => {
     datasets: [
       {
         data: [20,10,8,15,25,60,80, 40,60,20,10,8,15,],
-        color: (opacity = 1) => `rgba(255, 16, 59, ${opacity})`, // optional
+        color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`, // optional
         strokeWidth: 2 // optional
       }
     ],
   };
 
   const chartConfig = {
-    backgroundColor:'white',
-    backgroundGradientFrom: "#FAFAFA",
-    backgroundGradientFromOpacity: 0,
-    backgroundGradientTo: "#FAFAFA",
-    backgroundGradientToOpacity: 0,
-    color: (opacity = 1) => `rgba(216, 216, 216, ${opacity})`,
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     barPercentage: 0.5,
     style: {
       borderRadius: 12,
@@ -133,11 +128,7 @@ const MenuScreen = props => {
       height: 237,
       background: '#FAFAFA',
     },
-    propsForDots: {
-      r: "0",
-      strokeWidth: "",
-      stroke: "#fff"
-  },
+  
   propsForBackgroundLines:{
     strokeDasharray: "",
   }
@@ -219,12 +210,12 @@ const MenuScreen = props => {
     
      {/* Chart View */}
      <CardItem
-        color='#FAFAFA'
+        color='black'
         height='237'>
        <LineChart
         data={data}
         width={screenWidth-100}
-        height={200}
+        height={230}
         chartConfig={chartConfig}
         bezier
         withInnerLines={false}
