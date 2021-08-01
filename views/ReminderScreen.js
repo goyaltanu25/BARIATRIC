@@ -213,7 +213,7 @@ export default function ReminderScreen({ navigation }) {
   const [index, setIndex] = React.useState(0);
   const [routes] = React.useState([
     { key: 'first', title: 'Taken(3)' },
-    { key: 'second', title: 'Missed(0)' },
+    { key: 'second', title: 'Missed(2)' },
   ]);
 
   const renderScene = SceneMap({
